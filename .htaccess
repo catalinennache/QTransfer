@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteRule ^Assets/.*$ - [L]
+RewriteRule . index.php [L]
