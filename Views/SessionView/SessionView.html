@@ -1,0 +1,106 @@
+<?php
+
+?>
+
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div class="left-sidebar">
+    <div class="logo-holder">
+                    <a href="index.html">
+                        <img src="<?php echo $model["assets_path"] ?>/img/logo_qt.png" style="" alt="">
+                    </a>
+     </div>
+                <div class="toggle-holder">
+                    <span></span>
+                </div>
+                <div class="social-holder">
+                    <div class="social-list">
+                        <a href="#"><i class="fa fa-file"></i></a>
+                        <a href="#"><i class="fa fa-folder"></i></a>
+                        <a href="#"><i class="fa fa-clipboard"></i></a>
+                        <a href="#"><i class="fa fa-history"></i></a>
+                        <a href="#"><i class="fa fa-share"></i></a>
+                  </div>
+                </div>
+                <div class="fixed countdown" style="position:relative;width:100%; text-align:center;"></div>
+            </div>
+    </div>
+
+    <div class="main-panel">
+        <div class="card-view">
+            <div class="col-md-4 flip-card" style="">
+						<div class=" flip-card-inner" style="padding-bottom:0;">
+							<div class="flip-card-front">
+							<i class="fa fa-file"></i>
+							<h3 style="margin-bottom:0;">Realistic Filename</h3>
+							<div class="feature">
+									<i class="fa fa-info"></i>
+									<p>Text File (TXT)</p>
+								</div>
+								<div class="feature">
+									<i class="fa fa-info"></i>
+									<p>3256 Kb Size</p>
+								</div>
+								<div class="feature">
+										<i class="fa fa-info"></i>
+										<p>Uploaded 29 min ago.</p>
+								</div>
+								<div class="feature">
+										<i class="fa fa-info"></i>
+										<p>23 Downloads</p>
+								</div>
+								
+			
+                            <a href="javascript:void(0)" onclick="flip(this)">Download</a>
+                            <span>|</span>
+                            <a href="javascript:void(0)" onclick="flip(this)">Delete</a>
+                            
+							</div>
+						
+						
+                    </div><!-- flip cARD-->
+
+                   
+                </div><!-- flip card view-->
+
+
+        
+             </div>
+
+    </div>
+
+</body>
+
+
+<style>
+    .left-sidebar{
+        position:fixed;
+        height:100%;
+        top:0;
+        left:0;
+        border-right:1px solid #6195FF;
+        width:100px;
+    }
+
+    .main-panel{
+        padding-left:102px;
+    }
+
+    .logo-holder img{
+        width:100%;
+        transform:scale(0.9);
+    }
+    .toggle-holder{
+        width:100%;
+        height:100px;
+        background:#6195FF;
+        margin-top:5px;
+    }
+</style>
+</html>
