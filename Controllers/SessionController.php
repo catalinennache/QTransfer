@@ -1,6 +1,6 @@
 <?php
 
-class ASessionController{
+class SessionController{
 
     public function __construct(){
 

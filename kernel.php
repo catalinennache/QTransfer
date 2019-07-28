@@ -55,7 +55,7 @@
      
     private static function renderPage($model,$view){
          $root = Kernel::GetRoot();
-         require './Views/'.$view.'/'.$view.'.php';
+         require './Views/'.$view.'/'.$view.'.html';
      }
 
     private static function importController($name){

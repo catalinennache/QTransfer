@@ -38,7 +38,7 @@
         </table>
 
         <!-- Left Sidebar -->
-      
+        
 
             <div class="menu-right-part">
                 <div class="logo-holder">
@@ -70,9 +70,8 @@
 					<h2 class="title" style="text-align:center;">Anonymous Session</h2>
                 </div>
        <style>
-           .path,.search,.show-style{
+           .path,.search,.show-stypotipotile{
                display:inline-block;
-               
            }
            .path{
                margin-left:5vw;
@@ -223,9 +222,30 @@
         
     </div>
     
-
-
-
+    <style>
+        .background-modal{
+            position:fixed;
+            top:0;
+            width:100%;
+            height:100%;
+            background:black;
+            opacity:0.5;
+        }
+        .modal{
+            z-index:1000;
+            display:block;
+            margin:0 auto;
+            margin-top:100px;
+            height:480px;
+            width:620px;
+            background:white;
+        }
+    </style>
+    <!--div class="background-modal"> 
+        <div class="modal">
+           
+        </div>
+    </div-->
         <!--Load JavaScript-->
         <script type="text/javascript" src="<?php echo $model["assets_path"] ?>/js/jquery.js"></script>
         <script type='text/javascript' src='<?php echo $model["assets_path"] ?>/js/imagesloaded.pkgd.js'></script>
