@@ -13,7 +13,7 @@
     <script type="text/javascript" src="<?php echo $model['assets_path'] ?>/js/jquery-3.3.1.min.js"></script>
 
     <script type="text/javascript" src="<?php echo $model['assets_path'] ?>/js/jquery.steps.min.js"></script>
-
+    <script type="text/javascript" src="<?php echo $model['assets_path'] ?>/js/templates.js"></script>
 </head>
 
 <body>
@@ -65,147 +65,117 @@
             </div>
         </div>
         <div class="card-view">
-            <div class="col-md-4 flip-card" style="">
-                <div class=" flip-card-inner" style="">
-                    <div class="flip-card-front">
-                        <i class="fa fa-file"></i>
-                        <h3 style="margin-bottom:0;">Realistic Filename</h3>
-                        <div class="feature">
-                            <i class="fa fa-info"></i>
-                            <p>Text File (TXT)</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fa fa-info"></i>
-                            <p>3256 Kb Size</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fa fa-info"></i>
-                            <p>Uploaded 29 min ago.</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fa fa-info"></i>
-                            <p>23 Downloads</p>
-                        </div>
-
-                        <a href="javascript:void(0)" onclick="flip(this)">Download</a>
-                        <span>|</span>
-                        <a href="javascript:void(0)" onclick="flip(this)">Delete</a>
-
-                    </div>
-
-
-                </div><!-- flip cARD-->
-
-
-            </div><!-- flip card view-->
+           
 
 
 
         </div>
 
     </div>
-    <div class="modal-bg"></div>
-    <div class="modal-wrapper">
+    <div class="modal-bg" style="display: none;"></div>
+    <div class="modal-wrapper" style="display: none;" s>
 
         <div class="modal">
-            <!--div class="phase 0 active">
-                <h3> Upload Wizzard </h3>
-                <div class="modal-row">
-                    <input type="radio" name="upload-type">
-                    <label class="meaning" for="upload-type"> Clipboard text</label>
+
+            <h3>Clipboard</h3>
+            <section>
+                <div class="cnt">
+                    <div class="modal-row" style="margin-top:7px; ">
+                        <label style="color: black;">Title</label>
+                        <input type="text" name = "title" style="display: block; width:100%; opacity: 1;">
+                    </div>
+                    <div class="modal-row checkboxes">
+                        <label style="color: black;">Preview</label>
+                        <input type="checkbox" name = "preview" style="margin-top:5px;">
+                    </div>
+                    <div class="modal-row">
+                        <textarea placeholder="Enter text content here"
+                            style="width: 100%; height:230px; resize: none;" name="content"></textarea>
+                    </div>
+                    <input type="hidden" value="0" name="type">
+                    <input type="button" value="Done" class="done-btn-fm">
+                    <input type="button" value="Cancel" style="left: 24px; right:unset;" class="cancel-btn-fm">
                 </div>
-                <div class="modal-row">
-                        <input type="radio" name="upload-type">
-                        <label class="meaning" for="upload-type"> File </label>
+            </section>
+
+            <h3>File</h3>
+            <section>
+                <div class="cnt" style="">
+
                 </div>
-                <div class="modal-row">
-                        <input type="radio" name="upload-type">
-                        <label class="meaning" for="upload-type"> Large File (>150MB) </label>
+            </section>
+            <h3>Large File</h3>
+            <section>
+                <div class="cnt" style="">
                 </div>
-                   
-            </div>
-
-            <div class="phase 1. 1.0 hidden">
-                    <h3> Content Metadata </h3>
-                    <div class="modal-row">
-                            <input type="radio" name="Content-type">
-                            <label class="meaning" for="upload-type">Link</label>    
-                    </div>
-                    <div class="modal-row">
-                            <input type="radio" name="Content-type">
-                            <label class="meaning" for="upload-type">Plain Text</label>    
-                    </div>
-                    <div class="modal-row">
-                            <input type="checkbox" name="allow-preview">
-                            <label class="meaning" for="allow-preview">Allow preview (Other than the tittle)</label>    
-                    </div>
-
-
-            </div>
-
-            <div class="phase 1. 1.1 hidden">
-                    <h3> Content Metadata </h3>
-                    <div class="modal-row">
-                        
-                    </div>
-            </div>
-
-            <div class="phase 1.2 hidden">
-                    <h3> Content Metadata </h3>
-                    <div class="modal-row">
-                        
-                    </div>
-            </div>
-            <footer>
-                    <input type="button" value="Cancel">
-                    <input type="button" value="Next" class="next-step-up">
-            </footer-->
-            <h3>Keyboard</h3>
-            <section>
-                <p>What is needed to transform it to a tabs component? Not much. Just override some properties and done.</p>
-                <pre class="prettyprint linenums">
-       
-        </pre>
-            </section>
-            <h3>Other demos</h3>
-            <section>
-                <p>Scroll down or up to see the other demos.</p>
-            </section>
-            <h3>Documentation</h3>
-            <section>
-                <p>For more information <a href="https://github.com/rstaib/jquery-steps/wiki">check out the documentation</a>!</p>
-            </section>
-            <h3>Download</h3>
-            <section>
-                <p>See on getting started!</p>
             </section>
         </div>
     </div>
-    
+
 </body>
 <script>
+    function createContentCard(payload){
+        switch(payload.type){
+
+            case 0:{
+                window.createClipboardCard(payload.title,payload.content, $('.card-view')[0]);
+            }break;
+        }
+    }
+    $(document).ready(function (ev) {
+        $('.cancel-btn-fm').on('click', function (ev) {
+            $('.modal-wrapper').removeClass("exposed");
+            $('.modal-bg').removeClass("exposed");
+        });
+        $('.toggle-holder').on('click',function(){
+            $('.modal-wrapper').addClass("exposed");
+            $('.modal-bg').addClass("exposed");
+        });
+    });
+
     $('.modal').steps({
-    headerTag: "h3",
-    bodyTag: "section",
-    transitionEffect: "slideLeft",
-    enableFinishButton: false,
-    enablePagination: false,
-    enableAllSteps: true,
-    titleTemplate: "#title#",
-    cssClass: "tabcontrol"
-});
-    window.uploadwizz = [];
-    $('.modal-row label').on('click', function (ev) {
-        $(this).parent().find("input[type='radio'],input[type='checkbox']")[0].checked = true;
-    })
+        headerTag: "h3",
+        bodyTag: "section",
+        enableFinishButton: false,
+        enablePagination: false,
+        enableAllSteps: true,
+        titleTemplate: "#title#",
+        cssClass: "tabcontrol"
+    });
+    
+    $('.done-btn-fm').on('click',function(ev){
+       var inputs =  $(this).closest('section').find('input[type="text"],input[type="checkbox"],input[type="file"],textarea');
 
-    $('.next-step-up').on('click', function (ev) {
-        console.log($(this).closest('.modal').find('.phase.active')[0].classList[1]);
-    })
+        var payload = {}
 
-    window.interval = setInterval(function () {
+        Array.from(inputs).forEach( input => {
+            payload[input.name] = input.type == "checkbox"?input.checked:input.type=="file"?input.files:input.value;
+        });
+        $.ajax({type:"POST",
+            url:"/Content/AddClip",
+            data:payload,
+            success:function(data){
+                console.log(data);
+                if(data.success){
+                    createContentCard(payload);
+                }
+            },error:function(details){
 
-    }, 1000);
+            }
+        })
+    });
+
+
+    class CardContent{
+        elementRef;
+        type;
+        constructor(elementRef,type){
+         this.elementRef = elementRef;
+
+        }
+
+
+    }
 </script>
 
 </html>

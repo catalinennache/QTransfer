@@ -30,7 +30,7 @@
 }
 
 .card-view {
-    margin: calc(5vw - 10px);
+    margin: calc(5vw + 92px);
     width: 90%;
     margin-top: 50px;
 }
@@ -109,7 +109,7 @@ body a:hover {
 }
 
 .main-panel {
-    padding-left: 102px;
+    
     padding-top: 30px;
 }
 
@@ -131,6 +131,7 @@ body a:hover {
     text-align: center;
     font-family: 'Varela Round', sans-serif;
     letter-spacing: -0.5px;
+    display: inline-block;
 }
 
 .flip-card .flip-card-inner {
@@ -222,6 +223,7 @@ input[type="text"]:focus {
 }
 
 .row {
+    margin-left: 102px;
     margin-top: 70px;
 }
 
@@ -254,7 +256,7 @@ input[type="text"]:focus {
     background: white;
     margin-top:100px;
     max-width: 50%;
-    min-width: 30%;
+    min-width: 500px;
     width:max-content;
 }
 .modal-row{
@@ -306,23 +308,57 @@ input[type="text"]:focus {
 
 .steps li{
     display: inline-block;
-    border: 1px solid #6195FF;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-right-color: transparent;
+    border-bottom: 1px solid #6195FF;
+    border-color: transparent;
+    width: calc(100% / 3 - 2px);
+    text-align: center;
+    margin-top:10px;
+}
+.steps li:first-child{
+    margin-left: 2px;
 }
 .steps li.current{
-    border-bottom-color: transparent;
-    border-top-color: #6195FF;
-    border-left-color: #6195FF;
-    border-right-color: #6195FF;
+    border-color: #6195FF;
 }
 .steps li span{
     display: none;
 }
+.steps li a{
+    padding:10px;
+   
+}
 .content .title, .content .body{
     display: none;
 }
-.content .title.current ,.content .body.current{
-    display: block;
+.cnt{
+    width:98%;
+    margin:0 auto;
+    margin-top:2px;
+    margin-bottom: 2px;
+    height: 400px;
 }
+.cnt input[type="button"]{
+    position: absolute;
+    bottom: 10px;
+    right: 24px;
+    width: 80px;
+    height: 30px;
+    opacity: 1;
+    background: #6195FF;
+    color: white;
+    transition: .2s linear;
+    cursor: pointer;
+}
+.cnt input[type="button"]:focus{
+    opacity: .7;
+    background: #6195FF!important;
+}
+.cnt input[type="button"]:hover{
+    background: #0697AE;
+}
+.modal-bg.exposed,.modal-wrapper.exposed{
+    display: block!important;
+}
+/*.content .title.current ,.content .body.current{
+    display: block;
+}*/
