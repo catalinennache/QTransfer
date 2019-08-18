@@ -1,5 +1,5 @@
 <?php
-
+include_once 'ResultClasses.php';
 class HomeController{
 
     public function __construct(){
@@ -8,7 +8,8 @@ class HomeController{
     }
 
     public function default(){
-        $model["assets_path"] = './Assets';
+        $model = new ModelResult();
+     
         return $model;
     }
 

@@ -1,6 +1,6 @@
 <?php
+session_start();
 require 'kernel.php';
-
 try{
     // Verifica daca request-ul este valid   
     //Kernel::SecurityCheck($_REQUEST);

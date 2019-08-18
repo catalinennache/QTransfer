@@ -6,7 +6,7 @@ class DBConnector{
 
     //Testarea conexiunii la instantiere
     public function __construct($user,$pass,$host){
-        $connection = new PDO("mysql:host=".$host.";dbname=pai_db_traistaru", $user, $pass);
+        $connection = new PDO("mysql:host=".$host.";dbname=QTransfer", $user, $pass);
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this::$host = $host;
         $this::$user = $user;
@@ -17,7 +17,7 @@ class DBConnector{
     //
     public function getTables(){
         try{
-        $connection = new PDO("mysql:host=".$this::$host.";dbname=pai_db_traistaru", $this::$user, $this::$pass);
+        $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = $connection->prepare('show tables');
         $query->execute();
@@ -39,7 +39,7 @@ class DBConnector{
 
     public function getColumns($table){
         try{
-        $connection = new PDO("mysql:host=".$this::$host.";dbname=pai_db_traistaru", $this::$user, $this::$pass);
+        $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
         $q = $connection->prepare("DESCRIBE $table");
         $q->execute();
         $table_fields = $q->fetchAll(PDO::FETCH_NUM);
@@ -55,7 +55,7 @@ class DBConnector{
     }
     //Functia ce returneaza toate intrarile din tabel
     public function getEntries($table){
-        $connection = new PDO("mysql:host=".$this::$host.";dbname=pai_db_traistaru", $this::$user, $this::$pass);
+        $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
         $stmt = $connection->prepare("SELECT * FROM ".$table); 
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_NUM);
@@ -65,7 +65,7 @@ class DBConnector{
     }
      //Functia ce returneaza toate intrarile din tabel pe baza unei conditii puse la apel
     public function getEntriesWhere($table,$condition){
-        $connection = new PDO("mysql:host=".$this::$host.";dbname=pai_db_traistaru", $this::$user, $this::$pass);
+        $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
         $stmt = $connection->prepare("SELECT * FROM `$table` WHERE ".$condition); 
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_NUM);
@@ -76,7 +76,7 @@ class DBConnector{
 
     public function Add($table,$vals){
         try{
-            $connection = new PDO("mysql:host=".$this::$host.";dbname=pai_db_traistaru", $this::$user, $this::$pass);
+            $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
             $sql = "INSERT INTO ".$table." (";
             $columns  = $this->getColumns($table);
             $counter = 1;
@@ -113,7 +113,7 @@ class DBConnector{
     //Stergerea unei intrari pe baza de ID
     public function Remove($table,$entry){
         try {
-            $connection = new PDO("mysql:host=".$this::$host.";dbname=pai_db_traistaru", $this::$user, $this::$pass);
+            $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "DELETE FROM $table WHERE id=$entry";
             $connection->exec($sql);
@@ -130,7 +130,7 @@ class DBConnector{
     //Stergerea unei intrari pe baza de conditie pusa la apel
     public function RemoveWhere($table,$condition){
         try {
-            $connection = new PDO("mysql:host=".$this::$host.";dbname=pai_db_traistaru", $this::$user, $this::$pass);
+            $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "DELETE FROM $table WHERE ".$condition;
             $connection->exec($sql);
@@ -148,7 +148,7 @@ class DBConnector{
     public function Edit($table,$id,$updated_entry){
         if(strpos($table,"_") === false){   
         try {
-            $connection = new PDO("mysql:host=".$this::$host.";dbname=pai_db_traistaru", $this::$user, $this::$pass);
+            $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql ="UPDATE `$table` SET ";
             $columns  = $this->getColumns($table);

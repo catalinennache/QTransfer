@@ -18,20 +18,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="<?php echo $model["assets_path"] ?>/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo $model->assets_path ?>/css/bootstrap.min.css" />
 
 	<!-- Owl Carousel -->
-	<link type="text/css" rel="stylesheet" href="<?php echo $model["assets_path"] ?>/css/owl.carousel.css" />
-	<link type="text/css" rel="stylesheet" href="<?php echo $model["assets_path"] ?>/css/owl.theme.default.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo $model->assets_path ?>/css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo $model->assets_path ?>/css/owl.theme.default.css" />
 
 	<!-- Magnific Popup -->
-	<link type="text/css" rel="stylesheet" href="<?php echo $model["assets_path"] ?>/css/magnific-popup.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo $model->assets_path ?>/css/magnific-popup.css" />
 
 	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="<?php echo $model["assets_path"] ?>/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo $model->assets_path ?>/css/font-awesome.min.css">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="<?php echo $model["assets_path"] ?>/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo $model->assets_path ?>/css/style.css" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,7 +45,7 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('<?php echo $model["assets_path"] ?>/img/background1.jpg');">
+		<div class="bg-img" style="background-image: url('<?php echo $model->assets_path ?>/img/background1.jpg');">
 			<div class="overlay"></div>
 		</div>
 		<!-- /Background Image -->
@@ -58,8 +58,8 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a href="index.html">
-							<img class="logo" src="<?php echo $model["assets_path"] ?>/img/logo.png" alt="logo">
-							<img class="logo-alt" src="<?php echo $model["assets_path"] ?>/img/logo-alt.png" alt="logo">
+							<img class="logo" src="<?php echo $model->assets_path ?>/img/logo.png" alt="logo">
+							<img class="logo-alt" src="<?php echo $model->assets_path ?>/img/logo-alt.png" alt="logo">
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -133,7 +133,7 @@
 				<!-- /Section header -->
 
 				<!-- about -->
-				<div class="col-md-4 flip-card" style="">
+				<div class="col-md-4 flip-card" >
 					<div class="about flip-card-inner">
 						<div class="flip-card-front">
 							<i class="fa fa-link"></i>
@@ -260,6 +260,9 @@
 						opacity: 1;
 
 					}
+					.flip-card-inner:hover .lds-ellipsis div {
+						background: #FFF;
+					}
 
 					.flip-card-back {
 						width: 90%;
@@ -357,6 +360,69 @@
 					.feature p {
 						margin-bottom: 0;
 					}
+
+
+					.lds-ellipsis {
+  display: block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin:0 auto;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #000;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+
+.hide-op{
+	transition: 0.5s linear;
+	opacity: 0;
+}
 				</style>
 
 				<!-- about -->
@@ -426,10 +492,14 @@
 							<i class="fa fa-server"></i>
 							<h3>Create Session</h3>
 							<div class="session-create">
-								<input type="password" class="input" placeholder="Password"
-									style="margin-bottom:97px;margin-top:0;">
-								<a href="javascript:void(0)" onclick="flip(this)" style="margin-top:15px;">Create</a>
+								<input type="password" class="input" name="password" placeholder="Password"
+									style="margin-top:0;">
+									<input type="password" class="input" name="cpassword" placeholder="Confirm Password"
+									style="margin-bottom:67px;margin-top:0;">
+								<div>	<div class="lds-ellipsis hidden hide-op" style="transition: 1s linear;"><div></div><div></div><div></div><div></div></div> </div>
+								<a class="create-session" style="margin-top:15px;cursor: pointer;">Create</a>
 							</div>
+						
 						</div>
 						<style>
 							.session-create input {
@@ -477,6 +547,27 @@
 	<script type="text/javascript" src="<?php echo $model['assets_path'] ?>/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="<?php echo $model['assets_path'] ?>/js/main.js"></script>
 	<script>
+		function delay(time){
+			return new Promise((resolve)=>{
+				setTimeout(function(){
+					resolve(true);
+				},time);
+			})
+		}
+		function createSession(credentials){
+
+			$.ajax({
+				type:"POST",
+				url:"Session/Create",
+				data:credentials,
+				success:function(data){
+					console.log(data);
+					 data = JSON.parse(data);
+					 alert("succes!");
+					 if(data.redirect && data.redirect.length > 0) window.location.href = data.redirect;
+				}	
+			})
+		}
 		$(".home-content a").on('click', function (e) {
 			e.preventDefault();
 			var hash = this.hash;
@@ -484,6 +575,24 @@
 				scrollTop: $(this.hash).offset().top
 			}, 600);
 		});
+		$('.create-session').on('click',async function(event){
+			$('create-session').addClass('hide-op');
+			await delay(500);
+			$('input[name="cpassword"]').css('margin-bottom','47px');
+			$('.create-session').addClass('hidden');
+			$('.lds-ellipsis').removeClass('hidden');
+			await delay(100);
+			$('.lds-ellipsis').removeClass('hide-op');
+			var data = {};
+			data.password = $(event.target).parents(".flip-card-back").find('input[name="password"]')[0].value;
+			data.cpassword = $(event.target).parents(".flip-card-back").find('input[name="cpassword"]')[0].value;
+			await delay(3000);
+			createSession(data);
+		})
+		
+		
+
+
 	</script>
 </body>
 

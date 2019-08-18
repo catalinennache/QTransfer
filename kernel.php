@@ -1,5 +1,5 @@
 <?php
-
+include 'ResultClasses.php';
 
  class Kernel {
      private static $uniqInstance = true;
@@ -26,9 +26,13 @@
         //Pe baza design pattern-ului Model View Controller, Controller-ul va returna un model care mai
         //apoi va fi folosit la schitarea paginii
         $model = Kernel::execute($controller,$action,$req);
-        if($model){
+        if($model->getType() ==  'ModelResult'){
             Kernel::renderPage($model,$view);
+        }else if($model->getType() == 'JsonResult'){
+
+            echo json_encode($model);
         }
+ 
         //-----
      }
      
@@ -37,8 +41,10 @@
         Kernel::importController($controller);
         $ctrl = new $controller();
         if(method_exists($ctrl,$action)){
-            $model = $ctrl->$action($req);
-            return $model;
+            $result = $ctrl->$action($req);
+         
+            
+            return $result;
         }else{
             throw new Exception("Action not found");
         }
