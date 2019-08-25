@@ -3,12 +3,15 @@ require "dbConnector.php";
 class DashboardController{
 
     private static $SQLCon;
+    private static $user = 'g1kO1UFCRu';
+    private static $pass = 'SEyu0kbhbR';
+    private static $target = 'remotemysql.com:3306';
 
     //Instantierea Controllerului vine la pachet cu instantierea unui DataBaseConnector.
     //Acesta este un wrapper pentru clasa standard php PDO, care va implementa functiile de baza necesare
     //comunicarii corecte cu baza de date.
     public function __construct(){
-        self::$SQLCon = new DBConnector("root","","localhost");
+        self::$SQLCon = new DBConnector($user,$pass,$target);
     }
 
     //Fiecare Controller are o actiune default ce este executata 
