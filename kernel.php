@@ -9,10 +9,21 @@ include 'ResultClasses.php';
      }
       
     public static function Redirect($location){
-      header("Location:http://".Kernel::GetRoot()."index.php/".$location);
+      header("Location:http://".Kernel::GetRoot().$location);
+    }
+
+    public static function throwException($EXCP_Class_name,$message=""){
+        if(!class_exists($EXCP_Class_name."Exception")){
+            require_once 'CustomExceptions.php';
+        }
+        if(!class_exists($EXCP_Class_name."Exception"))
+            throw new UnregisteredKernelException("Undefined $EXCP_Class_name"."Exception"." reported: \"".$message.'"');
+        
+        $EXCP_Class_name = $EXCP_Class_name."Exception";
+        throw new  $EXCP_Class_name($message);
     }
     
-       //Verifica daca URL-ul contine index.php
+    //Verifica daca URL-ul contine index.php
     public static function SecurityCheck($req){
        if(strpos($_SERVER['REQUEST_URI'], 'index.php') === false){
            throw new OutOfBoundsException();
@@ -32,22 +43,21 @@ include 'ResultClasses.php';
 
             echo json_encode($model);
         }
- 
         //-----
      }
      
      //Instantierea si folosirea controllerului
     private static function execute($controller,$action,$req){
         Kernel::importController($controller);
+        if(!class_exists($controller) || !method_exists($controller,$action))
+            Kernel::throwException('UnresolvedRoute',"tried to call $controller->$action");
+       
         $ctrl = new $controller();
-        if(method_exists($ctrl,$action)){
-            $result = $ctrl->$action($req);
+        
+        $result = $ctrl->$action($req);
          
             
-            return $result;
-        }else{
-            throw new Exception("Action not found");
-        }
+        return $result;
     }
 
 
@@ -66,7 +76,7 @@ include 'ResultClasses.php';
 
     private static function importController($name){
         if (!file_exists('./Controllers/'.$name.'.php'))
-            throw new Exception ('Controller does not exist');
+             return false;
             else
             require ('./Controllers/'.$name.'.php'); 
     }
@@ -81,7 +91,7 @@ include 'ResultClasses.php';
         $detected_controller = isset($temp[0])&&strlen($temp[0])>0?$temp[0]:"Home"; // daca nu este prezenta nicio adresa de controller,
                                                                                         // cel default va fi alocat
         $detected_action = count($temp)>1 && isset($temp[1]) && strlen($temp[1]) > 0 ? $temp[1]:'default'; // analog cu linia de atribuire a
-                                                                                                           // controllerului
+        $detected_action = explode("?",$detected_action)[0];                                                                                                   // controllerului
         
         return array("controller"=>$detected_controller,"action"=>$detected_action);
     }
@@ -95,4 +105,5 @@ include 'ResultClasses.php';
         return Kernel::$root;
     }
  }
+
  ?>

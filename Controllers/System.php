@@ -19,7 +19,7 @@ class SystemController {
 
     public function HTTP404(){
         echo "<h1>This is a 404</h1><br>";
-        echo " <a href=\"".Kernel::GetRoot()."index.php/Dashboard\">Return to Dashboard</a>";
+        echo " <a href=\"http://".Kernel::GetRoot()."/QuickTransfer\">Return to Site</a>";
     }
 }
 

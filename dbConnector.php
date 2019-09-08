@@ -2,7 +2,9 @@
 
 class DBConnector{
     private  $connection;
-    private static $host,$user,$pass;
+    private static $host = 'www.remotemysql.com:3306';
+    private static $user = 'g1kO1UFCRu';
+    private static $pass = 'I9R2LtQaHz';
 
     //Testarea conexiunii la instantiere
     public function __construct($user,$pass,$host){

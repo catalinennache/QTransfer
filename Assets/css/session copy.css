@@ -361,13 +361,10 @@ input[type="text"]:focus {
 }
 
 .busy-card{
-    box-shadow: 0px 0px 10px #FF7900!important;
+    box-shadow: 0px 0px 10px #FF7900;
 }
 .scs-card{
-    box-shadow: 0px 0px 10px #98fb98!important;
-}
-.fail-card{
-    box-shadow: 0px 0px 10px firebrick!important;
+    box-shadow: 0px 0px 10px #3eb489;
 }
 /*.content .title.current ,.content .body.current{
     display: block;

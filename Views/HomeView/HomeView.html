@@ -140,18 +140,25 @@
 							<h3>Use Code</h3>
 							<p>Join a transfer session using an access code.</p>
 
-							<div class="inputs" id="inputs">
+							<div class="inputs join-code" id="inputs">
 								<input maxlength="2" placeholder="" value="" />
 								<input maxlength="2" placeholder="" value="" />
 								<input maxlength="2" placeholder="" value="" />
 								<input maxlength="1" placeholder="" value="" />
 							</div>
-							<a href="javascript:void(0)">Enter</a>
+							<a href="javascript:void(0)" onclick=""  class="attempt-session">Enter</a>
 						</div>
-						<div class="flip-card-back" style="display: none;">
-							<i class="fa fa-link"></i>
-							<h3>Enter Code</h3>
-
+						<div class="flip-card-back" style="display: none; height: auto;">
+							<i class="fa fa-server"></i>
+							<h3>Join Session</h3>
+							<h3 style="font-size: 18px;">Code Accepted</h3>
+							<div class="session-create">
+								<input type="password" class="input" name="password" placeholder="Password"
+									style="margin-top:0;">
+								<div>	<div class="lds-ellipsis hidden hide-op" style="transition: 1s linear;"><div></div><div></div><div></div><div></div></div> </div>
+								<a class="join-session" style="margin-top:15px;cursor: pointer;" onclick="">Join</a>
+							</div>
+						
 						</div>
 					</div>
 				</div>
@@ -563,7 +570,7 @@
 				success:function(data){
 					console.log(data);
 					 data = JSON.parse(data);
-					 alert("succes!");
+					 //alert("succes!");
 					 if(data.redirect && data.redirect.length > 0) window.location.href = data.redirect;
 				}	
 			})
@@ -586,10 +593,43 @@
 			var data = {};
 			data.password = $(event.target).parents(".flip-card-back").find('input[name="password"]')[0].value;
 			data.cpassword = $(event.target).parents(".flip-card-back").find('input[name="cpassword"]')[0].value;
-			await delay(3000);
+			await delay(1000);
 			createSession(data);
-		})
-		
+		});
+		$('.attempt-session').on('click',function(ev){
+			
+			var code = '';
+			$('.join-code input').each(function(index,element){
+				code += element.value;
+			})
+			if(code.length === 4){
+				flip(this)
+			}
+		});
+		$('.join-session').on('click',function(ev){
+			var code = '';
+			$('.join-code input').each(function(index,element){
+				code += element.value;
+			})
+			console.log("entered code ", code);
+			var password = $(this).parent().find('.input').val();
+			console.log("Password atempted ",$(this).parent().find('.input').val(),$(this).parent().find('.input'));
+			$.ajax({
+				type:'POST',
+				url:'QuickTransfer/Session/Join',
+				data:{code:code, password:password},
+				success:function(data){
+					data = JSON.parse(data);
+					if(data.success){
+						if(data.redirect && data.redirect.length > 0) window.location.href = data.redirect;
+					}
+				},
+				error:function(details){
+
+				}
+			})
+		});
+
 		
 
 

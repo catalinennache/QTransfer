@@ -147,17 +147,27 @@
        var inputs =  $(this).closest('section').find('input[type="text"],input[type="checkbox"],input[type="file"],textarea');
 
         var payload = {}
-
+        var unencodedPayload = {};
         Array.from(inputs).forEach( input => {
-            payload[input.name] = input.type == "checkbox"?input.checked:input.type=="file"?input.files:input.value;
+            payload[input.name] = encodeURIComponent( input.type == "checkbox"?input.checked:input.type=="file"?input.files:input.value);
+            unencodedPayload[input.name] =  input.type == "checkbox"?input.checked:input.type=="file"?input.files:input.value;
+           
         });
         $.ajax({type:"POST",
-            url:"/Content/AddClip",
+            url:"/QuickTransfer/Session/AddClip",
             data:payload,
             success:function(data){
+                data = JSON.parse(data);
                 console.log(data);
                 if(data.success){
-                    createContentCard(payload);
+                    unencodedPayload.type = 0;
+                    console.log("unencodedPayload ",unencodedPayload);
+                    createContentCard(unencodedPayload);
+                    $('.modal-wrapper').removeClass("exposed");
+                    $('.modal-bg').removeClass("exposed");
+                    
+                }else{
+                    console.log(data.success);
                 }
             },error:function(details){
 
@@ -165,6 +175,43 @@
         })
     });
 
+    function Copy(element){
+        console.log("Copying element ",{cid:$(element).attr('cid')});
+        console.log($(element).parents('.flip-card-inner'))
+        $(element).parents('.flip-card-inner').addClass('busy-card');
+        $.ajax({
+            type:'POST',
+            url:"/QuickTransfer/Session/GetClipContent",
+            data:{cid:$(element).attr('cid')},
+            success:function(response){
+                response = JSON.parse(response);
+                if(response.success){
+                    $(element).parents('.flip-card-inner').removeClass('busy-card');
+                    var text = document.createElement('textarea');
+                    text.style.position = 'static';
+                    text.style.bottom = '-50px';
+                    text.style.opacity = '0';
+                    document.body.append(text);
+                    text.value = decodeURIComponent(response.content);
+                    text.select();
+                   
+                    text.setSelectionRange(0, 99999); /*For mobile devices*/
+                    document.execCommand("copy");
+                    document.body.removeChild(text);
+                    $(element).parents('.flip-card-inner').addClass('scs-card');
+                    setTimeout(function(){ $(element).parents('.flip-card-inner').removeClass('scs-card');}.bind(element),3000);
+                }
+            },
+            error:function(details){
+
+            }
+        })
+        
+    }
+    function Delete(element){
+
+    }
+    //window.createClipboardCard("rsr","sdf",$('.card-view')[0]);
 
     class CardContent{
         elementRef;
@@ -177,5 +224,23 @@
 
     }
 </script>
+
+<script class="startup">
+  $(document).ready(function(){
+<?php
+    foreach($model['content'] as $card){
+            switch($card[2]){
+                case 0:{
+                    
+                    echo 'window.createClipboardCard('.$card[0].',decodeURIComponent("'.$card[3].'"),decodeURIComponent("'.$card[4].'"),$(".card-view")[0]);';
+                }break;
+            }
+    }
+
+   
+?>
+  });
+</script>
+
 
 </html>

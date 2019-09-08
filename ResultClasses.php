@@ -42,7 +42,13 @@
 
     class JsonResult extends Result{
         public function __construct(){
+          
+        }
 
+        public function Clean(){
+            foreach($this as $prop => $value){
+                unset($this->$prop);
+            }
         }
 
     }

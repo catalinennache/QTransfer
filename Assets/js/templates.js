@@ -54,9 +54,9 @@ window.filecard = `<div class="col-md-4 flip-card" style="">
             <p>%%download_times%% Downloads</p>
         </div>
 
-        <a href="javascript:void(0)" onclick="">Download</a>
+        <a href="javascript:void(0)" cid="%%content_id%%" onclick="">Download</a>
         <span>|</span>
-        <a href="javascript:void(0)" onclick="">Delete</a>
+        <a href="javascript:void(0)" cid="%%content_id%%" onclick="">Delete</a>
 
     </div>
 
@@ -67,7 +67,7 @@ window.filecard = `<div class="col-md-4 flip-card" style="">
 </div><!-- flip card view-->`
 
 window.clipcard = `<div class="col-md-4 flip-card" style="">
-<div class=" flip-card-inner" style="">
+<div class="flip-card-inner" style="">
     <div class="flip-card-front">
         <i class="fa fa-clipboard"></i>
         <h3 style="margin-bottom:0;">%%title%%</h3>
@@ -87,9 +87,9 @@ window.clipcard = `<div class="col-md-4 flip-card" style="">
             <i class="fa fa-info"></i>
             <p>%%download_times%% Downloads</p>
         </div>
-        <a href="javascript:void(0)" onclick="">Copy</a>
+        <a href="javascript:void(0)" cid="%%content_id%%" onclick="Copy(this)">Copy</a>
         <span>|</span>
-        <a href="javascript:void(0)" onclick="">Delete</a>
+        <a href="javascript:void(0)" cid="%%content_id%%" onclick="Delete(this)">Delete</a>
 
     </div>
 
@@ -98,7 +98,7 @@ window.clipcard = `<div class="col-md-4 flip-card" style="">
 
 
 </div><!-- flip card view-->`
-window.createClipboardCard = function (title, content, parent) {
+window.createClipboardCard = function (id,title, content, parent) {
     var card = window.clipcard;
     card = card.replace("%%title%%", title);
     card = card.replace('%%8ch%%', content.length > 8 ? content.substring(0, 8) + "..." : content);
@@ -106,6 +106,8 @@ window.createClipboardCard = function (title, content, parent) {
     card = card.replace("%%size%%",""+content.length + (m ? m.length : 0));
     card = card.replace("%%UTE%%", "0 min");
     card = card.replace("%%download_times%%", "0");
+    card = card.replace("%%content_id%%",id);
+    card = card.replace("%%content_id%%",id);
     parent.innerHTML += card;
 
 };

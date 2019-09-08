@@ -87,30 +87,7 @@ class DashboardController{
     public function Add($req){
        try{ 
        $result = self::$SQLCon->Add($req["table"],$req["values"]);
-       if($req["table"] == "projects" && $result === true){
-           //Updating the corelational table
-           $raw_authors = explode("&",$req["values"][1]);
-           $authors = array();
-           foreach($raw_authors as $author){
-              foreach(explode(',',trim($author)) as $auth){
-                  array_push($authors,$auth);
-              };
-           }
-           foreach($authors as $author){
-                $entr = self::$SQLCon->getEntriesWhere("authors","`authors`.`Name` = '".$author."' ");
-                try{
-                    if(!isset($entr[0][0]))
-                      throw new Exception();
-                }catch(Exception $e){
-                    self::addMissingauthor($author);
-                    $entr = self::$SQLCon->getEntriesWhere("authors","`authors`.`Name` = '".$author."' ");
-                    print_r($entr);
-                }
-                $aid = $entr[0][0];
-                $bid = self::$SQLCon->getEntriesWhere("projects","`projects`.`Title` = '".$req["values"][0]."'")[0][0];
-                $this->Add(array("table"=>"projects_authors","values"=>array("projects_ID"=>$bid,"authors_ID"=>$aid)));
-            }
-       }
+      
        header('Content-type: application/json');
        echo json_encode(array("success"=>$result));}
        catch(Exception $e){
