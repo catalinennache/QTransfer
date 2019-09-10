@@ -32,7 +32,7 @@
                 <a href="#"><i class="fa fa-folder"></i></a>
                 <a href="#"><i class="fa fa-clipboard"></i></a>
                 <a href="#"><i class="fa fa-history"></i></a>
-                <a href="#"><i class="fa fa-share"></i></a>
+                <a id="join-request"><i class="fa fa-share"></i></a>
             </div>
         </div>
         <div class="fixed countdown" style="position:relative;width:100%; text-align:center;"></div>
@@ -111,14 +111,14 @@
             </section>
         </div>
     </div>
-
+    
 </body>
 <script>
     function createContentCard(payload){
         switch(payload.type){
 
             case 0:{
-                window.createClipboardCard(payload.title,payload.content, $('.card-view')[0]);
+                window.createClipboardCard(payload.cid,payload.title,payload.content, $('.card-view')[0]);
             }break;
         }
     }
@@ -130,6 +130,11 @@
         $('.toggle-holder').on('click',function(){
             $('.modal-wrapper').addClass("exposed");
             $('.modal-bg').addClass("exposed");
+        });
+        $('#join-request').on('click',async function(){
+           var result = await CodeRequest();
+           console.log("The join code is "+result);
+           alert("The join code is "+result);
         });
     });
 
@@ -161,6 +166,7 @@
                 console.log(data);
                 if(data.success){
                     unencodedPayload.type = 0;
+                    unencodedPayload.cid = data.cid;
                     console.log("unencodedPayload ",unencodedPayload);
                     createContentCard(unencodedPayload);
                     $('.modal-wrapper').removeClass("exposed");
@@ -209,7 +215,49 @@
         
     }
     function Delete(element){
+        console.log("Copying element ",{cid:$(element).attr('cid')});
+        console.log($(element).parents('.flip-card-inner'))
+        $(element).parents('.flip-card-inner').addClass('busy-card');
+        $.ajax({
+            type:'POST',
+            url:"/QuickTransfer/Session/DeleteContent",
+            data:{cid:$(element).attr('cid')},
+            success:function(response){
+                response = JSON.parse(response);
+                if(response.success){
+                    $(element).parents('.flip-card').remove();
+                }else{
+                    $(element).parents('.flip-card-inner').removeClass('busy-card');
+                    $(element).parents('.flip-card-inner').addClass('fail-card');
+                    setTimeout(function(){ $(element).parents('.flip-card-inner').removeClass('fail-card');}.bind(element),3000);
+                }
+            },
+            error:function(details){
 
+            }
+        })
+        
+    }
+
+    function CodeRequest(){
+        return new Promise(function(resolve,reject){
+            $.ajax({
+                type:'POST',
+                url:"/QuickTransfer/Session/GetJoinCode",
+                success:function(respone){
+                    response = JSON.parse(respone);
+                    if(response.success){
+                        resolve(response.joincode);
+                        
+                    }else{
+                        resolve("not available at this moment");
+                    }
+                },
+                error:function(details){
+                    reject(details);
+                }
+            });
+        });
     }
     //window.createClipboardCard("rsr","sdf",$('.card-view')[0]);
 
@@ -239,6 +287,7 @@
 
    
 ?>
+    $('.startup').remove();
   });
 </script>
 

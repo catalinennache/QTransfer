@@ -50,7 +50,9 @@ class SessionController{
             $title= $req['title'];
             $text=$req['content'];
             $preview=$req['content'];
-            $model['success'] = Procedures::AddAsessionClip($_SESSION['asession_id'],$title,$text,$preview);
+            $result = Procedures::AddAsessionClip($_SESSION['asession_id'],$title,$text,$preview);
+            $model['success'] = $result['success'];
+            $model['cid'] = $result['cid'];
 
         }else{
             Kernel::throwException('Unauthorized');
@@ -58,6 +60,8 @@ class SessionController{
 
         return $model;
     }
+
+
 
     public function Join($req){
         $model = new JsonResult();
@@ -96,6 +100,35 @@ class SessionController{
             Kernel::throwException('Unauthorized');
             
         return $model;    
+    }
+
+    public function DeleteContent($req){
+        $model = new JsonResult();
+        $model->Clean();
+        if(isset($_SESSION['asession_id']) && isset($req['cid'])){
+            $result = Procedures::checkAsession($_SESSION['asession_id'],session_id());
+            if(!$result) Kernel::throwException('Unauthorized');
+
+           $scs = Procedures::DeleteContent($req['cid']);
+            
+            $model['success'] = $scs;
+        }else
+            Kernel::throwException('Unauthorized');
+            
+        return $model;    
+    }
+
+
+    public function GetJoinCode($req){
+        $model = new JsonResult();
+        $model->Clean();
+        if(!isset($_SESSION['asession_id']) || !Procedures::checkAsession($_SESSION['asession_id'],session_id()))
+            Kernel::throwException('Unauthorized');
+        $result = Procedures::GetJoinCode($_SESSION['asession_id']);  
+        $model['success'] = $result['success'];
+        $model['joincode'] = $result['joincode'];
+        
+        return $model;
     }
 
 }

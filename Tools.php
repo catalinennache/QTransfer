@@ -46,6 +46,8 @@ class Procedures{
            array_push($values,$res[0][0]);
            array_push($values,$access_code);
            $success = $dbc->Add('ASessions_Users',$values); 
+           if($success) 
+                $success = self::DeleteJoinCode($access_code);
            return array('success'=>$success,'asession_id'=>$res[0][0]);
         
         }
@@ -63,7 +65,14 @@ class Procedures{
         array_push($values,$text);
         array_push($values,":NULL");
         $dbc =  new DBConnector();
-        return $dbc->Add('ASessions_Content',$values);
+        $scs = $dbc->Add('ASessions_Content',$values);
+        $cid = -1;
+        if($scs){
+           $rs =  $dbc->getEntriesWhere('ASessions_content',"`ASession_Id` = '$asession_id' AND `Title` = '$title' AND `Text_Content` = '$text'");
+           if(count($rs)> 0)
+            $cid = $rs[0][0];
+        }
+        return array("success"=>$scs,"cid"=>$cid);
 
     }
 
@@ -75,6 +84,52 @@ class Procedures{
     public static function GetAsessionClipContentByCID($asession_id,$cid){
         $dbc = new DBConnector();
         return  $dbc->getEntriesWhere('ASessions_Content',"`ASessions_Content`.`Asession_Id` = '".$asession_id."' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '$cid'");
+    }
+
+    public static function DeleteContent($cid){
+        $dbc = new DBConnector();
+        return $dbc->RemoveWhere('ASessions_Content',"`CID` = '$cid'");
+    }
+
+    public static function GetJoinCode($asession_id){
+        $dbc = new DBConnector();
+        $current_session = $dbc->getEntriesWhere('ASessions',"`Id` = '$asession_id'")[0];
+        Logger::WriteLines("Current Session fetched : ",$current_session);
+        if(!$current_session[4]){
+            $password = $current_session[3];
+            $rs = $dbc->getEntriesWhere('ASessions',"`Password` = '$password'");
+            $na_codes = array();
+            foreach($rs as $result){
+                $na_codes[] = $result[4];
+            }
+            $rand =strtoupper(substr(uniqid('', true), -4));
+
+            while(in_array($rand,$na_codes))
+                $rand = strtoupper(substr(uniqid('', true), -4));
+            $edited_entry = array();
+            $edited_entry[] = $current_session[0];
+            $edited_entry[] = $current_session[1];
+            $edited_entry[] = $current_session[2];
+            $edited_entry[] = $current_session[3];
+            $edited_entry[] = $rand;
+            $scs = $dbc->Edit('ASessions',$asession_id,$edited_entry);  
+            Logger::WriteLines("Returning scs $scs and joincode ".($scs?$rand:"N/A"));
+            return array("success"=>$scs,"joincode"=>($scs?strtoupper($rand):"N/A"));
+        }else{
+            return array("success"=>true,"joincode"=>$current_session[4]);
+        }
+    }
+
+    private static function DeleteJoinCode($access_code){
+        $dbc = new DBConnector();
+        $rs = $dbc->getEntriesWhere('ASessions',"`Access_code` = '$access_code'")[0];
+        $updated_entry = array();
+        $updated_entry[] = $rs[0];
+        $updated_entry[] = $rs[1];
+        $updated_entry[] = $rs[2];
+        $updated_entry[] = $rs[3];
+        $updated_entry[] = ':NULL';
+        return $dbc->Edit('ASessions',$rs[0],$updated_entry);
     }
 
 }
@@ -203,7 +258,7 @@ class DBConnector{
     //Stergerea unei intrari pe baza de ID
     public function Remove($table,$entry){
         try {
-            $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", $this::$user, $this::$pass);
+            $connection = new PDO("mysql:host=".$this::$host.";dbname=QTransfer", self::$user, self::$pass);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "DELETE FROM $table WHERE id=$entry";
             $connection->exec($sql);
@@ -225,7 +280,7 @@ class DBConnector{
             $sql = "DELETE FROM $table WHERE ".$condition;
             $connection->exec($sql);
              return true;
-            }
+        }
         catch(PDOException $e)
             {   
                 return false;
@@ -253,13 +308,13 @@ class DBConnector{
                     $counter++;
                 
             }
-            $sql =$sql." WHERE `$table`.`ID` = "."$id";
-           
-
+            $sql =$sql." WHERE `$table`.`$columns[0]` = "."'$id'";
+            $sql = str_replace("':NULL'","NULL",$sql);
+            Logger::WriteLines(" Editing entry with the following sql ",$sql);
             $connection->exec($sql);
             $stmt = $connection->prepare($sql);
             $stmt->execute();
-            return $stmt->rowCount()>0?true:false;
+            return true;
         }catch(Exception $e)
             { Logger::WriteLines($e);
                return false;
