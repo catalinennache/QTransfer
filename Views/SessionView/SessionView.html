@@ -19,7 +19,7 @@
 <body>
     <div class="left-sidebar">
         <div class="logo-holder">
-            <a href="index.html">
+            <a href="/QuickTransfer">
                 <img src="<?php echo $model->assets_path ?>/img/logo_qt.png" alt="">
             </a>
         </div>
@@ -28,11 +28,11 @@
         </div>
         <div class="social-holder">
             <div class="social-list">
+                <a href="" id="signout" title="Leave the asession"><i class="fa fa-chevron-circle-left" style="font-size:32px;"></i></a>
                 <a href="#"><i class="fa fa-file"></i></a>
-                <a href="#"><i class="fa fa-folder"></i></a>
                 <a href="#"><i class="fa fa-clipboard"></i></a>
                 <a href="#"><i class="fa fa-history"></i></a>
-                <a id="join-request"><i class="fa fa-share"></i></a>
+                <a id="join-request" title="Show the join code" style="cursor: pointer;"><i class="fa fa-share"></i></a>
             </div>
         </div>
         <div class="fixed countdown" style="position:relative;width:100%; text-align:center;"></div>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="modal-row checkboxes">
                         <label style="color: black;">Preview</label>
-                        <input type="checkbox" name = "preview" style="margin-top:5px;">
+                        <input type="checkbox" name = "preview" style="margin-top:5px;height: auto;">
                     </div>
                     <div class="modal-row">
                         <textarea placeholder="Enter text content here"
@@ -101,7 +101,18 @@
             <h3>File</h3>
             <section>
                 <div class="cnt" style="">
-
+                    <div class="modal-row" style="margin-top:7px; ">
+                        <label style="color: black;">Title</label>
+                        <input type="text" name = "title" style="display: block; width:100%; opacity: 1;">
+                    </div>
+                    <div class="modal-row">
+                        <label style="color: black;">File</label>
+                        <input type="file" class="upfile" name="file" style="display: block; width:100%; opacity: 1; height: auto;padding:10px;">
+                    </div>
+                    <input type="hidden" value="1" name="type">
+                    <input type="button" value="Upload" class="upload-btn-fm">
+                    <input type="button" value="Cancel" style="left: 24px; right:unset;" class="cancel-btn-fm">
+                
                 </div>
             </section>
             <h3>Large File</h3>
@@ -132,10 +143,23 @@
             $('.modal-bg').addClass("exposed");
         });
         $('#join-request').on('click',async function(){
-           var result = await CodeRequest();
+            $('body').addClass('busy');
+           try{ var result = await CodeRequest(); }catch(e){} 
+           $('body').removeClass('busy');
            console.log("The join code is "+result);
            alert("The join code is "+result);
         });
+        $('#signout').on('click',async function(ev){
+           $('body').addClass('busy');
+           try{ var result = await SignoutRequest(); }catch(e){} 
+           $('body').removeClass('busy');
+           if(result.success){
+               alert("Signed out successfully \nCome back anytime using the code "+result.joincode);
+               window.location.reload();
+           }
+           // toast here
+        });
+        
     });
 
     $('.modal').steps({
@@ -148,6 +172,68 @@
         cssClass: "tabcontrol"
     });
     
+
+    $('.upload-btn-fm').on('click',function(ev){
+        var inputs =  $(this).closest('section').find('input[type="text"],input[type="checkbox"],input[type="file"],textarea');
+        var unencodedPayload = {};
+        var payload = new FormData();
+       Array.from(inputs).forEach( input => {
+            payload.append(input.name, input.type == "checkbox"?input.checked:input.type=="file"?input.files[0]:encodeURIComponent( input.value));
+            unencodedPayload[input.name] =  input.type == "checkbox"?input.checked:input.type=="file"?input.files[0]:input.value;
+           
+        });
+
+        $.ajax({
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+
+        // Upload progress
+                xhr.upload.addEventListener("progress", function(evt){
+                    if (evt.lengthComputable) {
+                    var percentComplete = evt.loaded / evt.total;
+                    //Do something with upload progress
+                        console.log(evt.loaded,evt.total);
+                        }
+                }, false);
+
+       // Download progress
+                xhr.addEventListener("progress", function(evt){
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+               // Do something with download progress
+                        console.log(percentComplete);
+                    }
+                }, false);
+
+                    return xhr;
+            },
+            type: 'POST',
+            processData:false,
+            contentType:false,
+            url: "/QuickTransfer/Session/AddFile",
+            data: payload,
+            success: function(data){
+                data = JSON.parse(data);
+                console.log(data);
+                if(data.success){
+                    unencodedPayload.type = 1;
+                    unencodedPayload.cid = data.cid;
+                    console.log("unencodedPayload ",unencodedPayload);
+                    createContentCard(unencodedPayload);
+                    cleanUpForm();
+                    $('.modal-wrapper').removeClass("exposed");
+                    $('.modal-bg').removeClass("exposed");
+                }else{
+                    console.log(data.success);
+                }
+            }
+        });
+    
+      
+
+    });
+
+
     $('.done-btn-fm').on('click',function(ev){
        var inputs =  $(this).closest('section').find('input[type="text"],input[type="checkbox"],input[type="file"],textarea');
 
@@ -244,8 +330,8 @@
             $.ajax({
                 type:'POST',
                 url:"/QuickTransfer/Session/GetJoinCode",
-                success:function(respone){
-                    response = JSON.parse(respone);
+                success:function(response){
+                    response = JSON.parse(response);
                     if(response.success){
                         resolve(response.joincode);
                         
@@ -258,6 +344,22 @@
                 }
             });
         });
+    }
+
+    function SignoutRequest(){
+        return new Promise(function(resolve){
+            $.ajax({
+                type:'POST',
+                url:"/QuickTransfer/Session/Signout",
+                success:function(response){
+                    response = JSON.parse(response);
+                    resolve(response);
+                },
+                error:function(details){
+                    reject(details);
+                }
+            })
+        })
     }
     //window.createClipboardCard("rsr","sdf",$('.card-view')[0]);
 

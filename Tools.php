@@ -132,6 +132,12 @@ class Procedures{
         return $dbc->Edit('ASessions',$rs[0],$updated_entry);
     }
 
+    public static function SignoutAsession($asession_id,$user_id){
+        $dbc = new DBConnector();
+        $result = $dbc->RemoveWhere('ASessions_Users',"`User_Id` = '$user_id' AND `ASession_Id` = '$asession_id'");
+        return $result;
+    }
+
 }
 
 

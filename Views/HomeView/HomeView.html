@@ -133,7 +133,9 @@
 				<!-- /Section header -->
 
 				<!-- about -->
-				<div class="col-md-4 flip-card" >
+				<?php 
+				if(!$model['asession_avb']){
+				 echo '<div class="col-md-4 flip-card" >
 					<div class="about flip-card-inner">
 						<div class="flip-card-front">
 							<i class="fa fa-link"></i>
@@ -151,7 +153,7 @@
 						<div class="flip-card-back" style="display: none; height: auto;">
 							<i class="fa fa-server"></i>
 							<h3>Join Session</h3>
-							<h3 style="font-size: 18px;">Code Accepted</h3>
+							<h3 style="font-size: 18px;">Enter the password</h3>
 							<div class="session-create">
 								<input type="password" class="input" name="password" placeholder="Password"
 									style="margin-top:0;">
@@ -161,7 +163,35 @@
 						
 						</div>
 					</div>
-				</div>
+				  </div>';
+				}else{
+					echo '<div class="col-md-4 flip-card" >
+						<div class="about flip-card-inner">
+							<div class="flip-card-front">
+								<i class="fa fa-link"></i>
+								<h3>Use Code</h3>
+								<p>Looks like you\'re already joined to a session
+									<br>
+									You can leave it anytime from <a class="signout-asession" style="cursor: pointer;">here</a>.
+								</p>
+
+								<a href="Session"   class="">Enter</a>
+							</div>
+							<div class="flip-card-back" style="display: none; height: auto;">
+								<i class="fa fa-server"></i>
+								<h3>Join Session</h3>
+								<h3 style="font-size: 18px;">Enter the password</h3>
+								<div class="session-create">
+									<input type="password" class="input" name="password" placeholder="Password"
+										style="margin-top:0;">
+									<div>	<div class="lds-ellipsis hidden hide-op" style="transition: 1s linear;"><div></div><div></div><div></div><div></div></div> </div>
+									<a class="join-session" style="margin-top:15px;cursor: pointer;" onclick="">Join</a>
+								</div>
+							
+							</div>
+						</div>
+					  </div>';
+				}?>
 				<!-- /about -->
 				<script>
 					function flip(elm) {

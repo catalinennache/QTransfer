@@ -1,0 +1,112 @@
+2019-09-11 00:12:27 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:12:27 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '' AND `ASessions_Users`.`User_Id` = 'f175e3967d88db90ddefae038ab87e45'
+2019-09-11 00:12:27 --> Fetche the results ::
+2019-09-11 00:12:27 --> []
+2019-09-11 00:12:27 --> checkAsession called with and f175e3967d88db90ddefae038ab87e45 with result: 
+2019-09-11 00:12:27 --> []
+2019-09-11 00:12:27 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:12:27 --> Request finished, shuttting down the logger
+
+2019-09-11 00:12:37 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:12:38 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions` WHERE `ASessions`.`Password` = 'swiss' AND `ASessions`.`Access_code` = '9456'
+2019-09-11 00:12:38 --> Fetche the results ::
+2019-09-11 00:12:38 --> [[5d781fa3de0fa,95bd82f2e2777608fcc9189248238708,2019-09-12 00:11:47,swiss,9456,]]
+2019-09-11 00:12:38 --> sql after replace 
+2019-09-11 00:12:38 --> INSERT INTO ASessions_Users (User_Id, ASession_Id, Access_code) VALUES ('f175e3967d88db90ddefae038ab87e45', '5d781fa3de0fa', '9456')
+2019-09-11 00:12:38 --> DBC->Add executed:
+2019-09-11 00:12:38 --> SQL:
+2019-09-11 00:12:38 --> INSERT INTO ASessions_Users (User_Id, ASession_Id, Access_code) VALUES ('f175e3967d88db90ddefae038ab87e45', '5d781fa3de0fa', '9456')
+2019-09-11 00:12:38 --> Connection:
+2019-09-11 00:12:38 --> INSERT INTO ASessions_Users (User_Id, ASession_Id, Access_code) VALUES ('f175e3967d88db90ddefae038ab87e45', '5d781fa3de0fa', '9456')
+2019-09-11 00:12:38 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions` WHERE `Access_code` = '9456'
+2019-09-11 00:12:38 --> Fetche the results ::
+2019-09-11 00:12:38 --> [[5d781fa3de0fa,95bd82f2e2777608fcc9189248238708,2019-09-12 00:11:47,swiss,9456,]]
+2019-09-11 00:12:39 -->  Editing entry with the following sql 
+2019-09-11 00:12:39 --> UPDATE `ASessions` SET `Id`= '5d781fa3de0fa', `Initiator_ID`= '95bd82f2e2777608fcc9189248238708', `Expiration`= '2019-09-12 00:11:47', `Password`= 'swiss', `Access_code`= NULL  WHERE `ASessions`.`Id` = '5d781fa3de0fa'
+2019-09-11 00:12:39 -->  received from Procedures-> JoinAsession the following result : 
+2019-09-11 00:12:39 --> [1,5d781fa3de0fa,]
+2019-09-11 00:12:39 --> Entered the scs branch
+2019-09-11 00:12:39 --> Request finished, shuttting down the logger
+
+2019-09-11 00:12:39 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:12:39 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d781fa3de0fa' AND `ASessions_Users`.`User_Id` = 'f175e3967d88db90ddefae038ab87e45'
+2019-09-11 00:12:39 --> Fetche the results ::
+2019-09-11 00:12:39 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:12:39 --> checkAsession called with 5d781fa3de0faand f175e3967d88db90ddefae038ab87e45 with result: 
+2019-09-11 00:12:39 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:12:40 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d781fa3de0fa' AND `ASessions_Content`.`Type` = '0'
+2019-09-11 00:12:40 --> Fetche the results ::
+2019-09-11 00:12:40 --> [[15,5d781fa3de0fa,0,can%20you%20see%20it%3F,cascade,,]]
+2019-09-11 00:12:40 --> Request finished, shuttting down the logger
+
+2019-09-11 00:12:56 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:12:57 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d781fa3de0fa' AND `ASessions_Users`.`User_Id` = 'f175e3967d88db90ddefae038ab87e45'
+2019-09-11 00:12:57 --> Fetche the results ::
+2019-09-11 00:12:57 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:12:57 --> checkAsession called with 5d781fa3de0faand f175e3967d88db90ddefae038ab87e45 with result: 
+2019-09-11 00:12:57 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:12:57 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d781fa3de0fa' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '15'
+2019-09-11 00:12:57 --> Fetche the results ::
+2019-09-11 00:12:57 --> [[15,5d781fa3de0fa,0,can%20you%20see%20it%3F,cascade,,]]
+2019-09-11 00:12:57 --> Request finished, shuttting down the logger
+
+2019-09-11 00:14:27 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:14:28 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d781fa3de0fa' AND `ASessions_Users`.`User_Id` = 'f175e3967d88db90ddefae038ab87e45'
+2019-09-11 00:14:28 --> Fetche the results ::
+2019-09-11 00:14:28 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:14:28 --> checkAsession called with 5d781fa3de0faand f175e3967d88db90ddefae038ab87e45 with result: 
+2019-09-11 00:14:28 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:14:28 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d781fa3de0fa' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '15'
+2019-09-11 00:14:28 --> Fetche the results ::
+2019-09-11 00:14:28 --> [[15,5d781fa3de0fa,0,can%20you%20see%20it%3F,cascade,,]]
+2019-09-11 00:14:28 --> Request finished, shuttting down the logger
+
+2019-09-11 00:14:43 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:14:43 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d781fa3de0fa' AND `ASessions_Users`.`User_Id` = 'f175e3967d88db90ddefae038ab87e45'
+2019-09-11 00:14:43 --> Fetche the results ::
+2019-09-11 00:14:43 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:14:43 --> checkAsession called with 5d781fa3de0faand f175e3967d88db90ddefae038ab87e45 with result: 
+2019-09-11 00:14:43 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:14:44 --> Request finished, shuttting down the logger
+
+2019-09-11 00:14:45 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:14:45 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d781fa3de0fa' AND `ASessions_Users`.`User_Id` = 'f175e3967d88db90ddefae038ab87e45'
+2019-09-11 00:14:45 --> Fetche the results ::
+2019-09-11 00:14:45 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:14:45 --> checkAsession called with 5d781fa3de0faand f175e3967d88db90ddefae038ab87e45 with result: 
+2019-09-11 00:14:45 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:14:46 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d781fa3de0fa' AND `ASessions_Content`.`Type` = '0'
+2019-09-11 00:14:46 --> Fetche the results ::
+2019-09-11 00:14:46 --> []
+2019-09-11 00:14:46 --> Request finished, shuttting down the logger
+
+2019-09-11 00:18:25 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 00:18:25 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d781fa3de0fa' AND `ASessions_Users`.`User_Id` = 'f175e3967d88db90ddefae038ab87e45'
+2019-09-11 00:18:25 --> Fetche the results ::
+2019-09-11 00:18:25 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:18:25 --> checkAsession called with 5d781fa3de0faand f175e3967d88db90ddefae038ab87e45 with result: 
+2019-09-11 00:18:25 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 00:18:26 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions` WHERE `Id` = '5d781fa3de0fa'
+2019-09-11 00:18:26 --> Fetche the results ::
+2019-09-11 00:18:26 --> [[5d781fa3de0fa,95bd82f2e2777608fcc9189248238708,2019-09-12 00:11:47,swiss,,]]
+2019-09-11 00:18:26 --> Current Session fetched : 
+2019-09-11 00:18:26 --> [5d781fa3de0fa,95bd82f2e2777608fcc9189248238708,2019-09-12 00:11:47,swiss,,]
+2019-09-11 00:18:26 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions` WHERE `Password` = 'swiss'
+2019-09-11 00:18:26 --> Fetche the results ::
+2019-09-11 00:18:26 --> [[5d781fa3de0fa,95bd82f2e2777608fcc9189248238708,2019-09-12 00:11:47,swiss,,]]
+2019-09-11 00:18:26 -->  Editing entry with the following sql 
+2019-09-11 00:18:26 --> UPDATE `ASessions` SET `Id`= '5d781fa3de0fa', `Initiator_ID`= '95bd82f2e2777608fcc9189248238708', `Expiration`= '2019-09-12 00:11:47', `Password`= 'swiss', `Access_code`= '2569'  WHERE `ASessions`.`Id` = '5d781fa3de0fa'
+2019-09-11 00:18:26 --> Returning scs 1 and joincode 2569
+2019-09-11 00:18:26 --> Request finished, shuttting down the logger
+
+2019-09-11 21:36:29 --> Logger started with id f175e3967d88db90ddefae038ab87e45
+2019-09-11 21:36:29 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d781fa3de0fa' AND `ASessions_Users`.`User_Id` = 'f175e3967d88db90ddefae038ab87e45'
+2019-09-11 21:36:29 --> Fetche the results ::
+2019-09-11 21:36:29 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 21:36:29 --> checkAsession called with 5d781fa3de0faand f175e3967d88db90ddefae038ab87e45 with result: 
+2019-09-11 21:36:29 --> [[82,f175e3967d88db90ddefae038ab87e45,5d781fa3de0fa,9456,]]
+2019-09-11 21:36:30 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d781fa3de0fa' AND `ASessions_Content`.`Type` = '0'
+2019-09-11 21:36:30 --> Fetche the results ::
+2019-09-11 21:36:30 --> []
+2019-09-11 21:36:30 --> Request finished, shuttting down the logger
+

@@ -61,6 +61,18 @@ class SessionController{
         return $model;
     }
 
+    public function RequestDownload($req){
+
+    }
+
+    public function AddFile($req){
+        $model = new JsonResult();
+        $model->Clean();
+        if(!isset($_SESSION['asession']) || !Procedures::checkAsession($_SESSION['asession_id'],session_id()))
+            Kernel::throwException('Unauthorized');
+        
+
+    }
 
 
     public function Join($req){
@@ -129,6 +141,20 @@ class SessionController{
         $model['joincode'] = $result['joincode'];
         
         return $model;
+    }
+
+    public function Signout($req){
+        $model = new JsonResult();
+        $model->Clean();
+        if(!isset($_SESSION['asession_id']) || !Procedures::checkAsession($_SESSION['asession_id'],session_id()))
+            Kernel::throwException('Unauthorized');
+        $virtual_model = $this->GetJoinCode($req);    
+        $result = Procedures::SignoutAsession($_SESSION['asession_id'],session_id());
+        if($result)
+            unset($_SESSION['asession_id']);
+        $model['success'] = $result && $virtual_model['success'];
+        $model['joincode'] = $virtual_model['joincode'];
+        return $model;    
     }
 
 }

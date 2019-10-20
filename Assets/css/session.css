@@ -261,7 +261,7 @@ input[type="text"]:focus {
 }
 .modal-row{
     display: block;
-    margin : 0 20px;
+    margin : 5px 20px;
 }
 .modal-row > *{
     width: max-content;
@@ -368,6 +368,9 @@ input[type="text"]:focus {
 }
 .fail-card{
     box-shadow: 0px 0px 10px firebrick!important;
+}
+.busy{
+    cursor: wait;
 }
 /*.content .title.current ,.content .body.current{
     display: block;

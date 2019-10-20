@@ -1,0 +1,42 @@
+2019-09-10 23:51:47 --> Logger started with id 63e1d5cbc0bb74030b29011d87013490
+2019-09-10 23:51:47 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '' AND `ASessions_Users`.`User_Id` = '63e1d5cbc0bb74030b29011d87013490'
+2019-09-10 23:51:47 --> Fetche the results ::
+2019-09-10 23:51:47 --> []
+2019-09-10 23:51:47 --> checkAsession called with and 63e1d5cbc0bb74030b29011d87013490 with result: 
+2019-09-10 23:51:47 --> []
+2019-09-10 23:51:47 --> Logger started with id 63e1d5cbc0bb74030b29011d87013490
+2019-09-10 23:51:47 --> Request finished, shuttting down the logger
+
+2019-09-10 23:51:50 --> Logger started with id 63e1d5cbc0bb74030b29011d87013490
+2019-09-10 23:51:50 --> Request finished, shuttting down the logger
+
+2019-09-10 23:52:05 --> Logger started with id 63e1d5cbc0bb74030b29011d87013490
+2019-09-10 23:52:06 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions` WHERE `ASessions`.`Password` = 'cascade' AND `ASessions`.`Access_code` = 'TEST'
+2019-09-10 23:52:06 --> Fetche the results ::
+2019-09-10 23:52:06 --> [[5d714807cccf9,f941aa901a5b9de4fab3ba1dca3967b1,2019-09-06 19:38:15,cascade,TEST,]]
+2019-09-10 23:52:06 --> sql after replace 
+2019-09-10 23:52:06 --> INSERT INTO ASessions_Users (User_Id, ASession_Id, Access_code) VALUES ('63e1d5cbc0bb74030b29011d87013490', '5d714807cccf9', 'TEST')
+2019-09-10 23:52:06 --> DBC->Add executed:
+2019-09-10 23:52:06 --> SQL:
+2019-09-10 23:52:06 --> INSERT INTO ASessions_Users (User_Id, ASession_Id, Access_code) VALUES ('63e1d5cbc0bb74030b29011d87013490', '5d714807cccf9', 'TEST')
+2019-09-10 23:52:06 --> Connection:
+2019-09-10 23:52:06 --> INSERT INTO ASessions_Users (User_Id, ASession_Id, Access_code) VALUES ('63e1d5cbc0bb74030b29011d87013490', '5d714807cccf9', 'TEST')
+2019-09-10 23:52:55 --> Logger started with id 63e1d5cbc0bb74030b29011d87013490
+2019-09-10 23:52:55 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions` WHERE `ASessions`.`Password` = 'cascade' AND `ASessions`.`Access_code` = 'TEST'
+2019-09-10 23:52:55 --> Fetche the results ::
+2019-09-10 23:52:55 --> [[5d714807cccf9,f941aa901a5b9de4fab3ba1dca3967b1,2019-09-06 19:38:15,cascade,TEST,]]
+2019-09-10 23:52:56 --> sql after replace 
+2019-09-10 23:52:56 --> INSERT INTO ASessions_Users (User_Id, ASession_Id, Access_code) VALUES ('63e1d5cbc0bb74030b29011d87013490', '5d714807cccf9', 'TEST')
+2019-09-10 23:52:56 --> PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '63e1d5cbc0bb74030b29011d87013490' for key 'User_Id' in /opt/lampp/htdocs/QuickTransfer/Tools.php:246
+Stack trace:
+#0 /opt/lampp/htdocs/QuickTransfer/Tools.php(246): PDOStatement->execute()
+#1 /opt/lampp/htdocs/QuickTransfer/Tools.php(48): DBConnector->Add('ASessions_Users', Array)
+#2 /opt/lampp/htdocs/QuickTransfer/Controllers/SessionController.php(73): Procedures::JoinAsession('63e1d5cbc0bb740...', 'TEST', 'cascade')
+#3 /opt/lampp/htdocs/QuickTransfer/kernel.php(57): SessionController->Join(Array)
+#4 /opt/lampp/htdocs/QuickTransfer/kernel.php(39): Kernel::execute('SessionControll...', 'Join', Array)
+#5 /opt/lampp/htdocs/QuickTransfer/index.php(15): Kernel::FireupRoute('SessionControll...', 'Join', Array)
+#6 {main}
+2019-09-10 23:52:56 -->  received from Procedures-> JoinAsession the following result : 
+2019-09-10 23:52:56 --> [,5d714807cccf9,]
+2019-09-10 23:52:56 --> Request finished, shuttting down the logger
+
