@@ -1,0 +1,3 @@
+2019-11-24 20:46:39 --> Logger started with id 0b0aa1bfeb2558f37aaa87c96597d4eb
+2019-11-24 20:46:39 --> Request finished, shuttting down the logger
+

@@ -2111,3 +2111,571 @@ Stack trace:
 2019-10-03 23:09:35 --> [[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,]]
 2019-10-03 23:09:35 --> Request finished, shuttting down the logger
 
+2019-10-20 13:51:12 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-10-20 13:51:12 --> Request finished, shuttting down the logger
+
+2019-10-20 13:51:17 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-10-20 13:51:17 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-10-20 13:51:17 --> Fetche the results ::
+2019-10-20 13:51:17 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-10-20 13:51:17 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-10-20 13:51:17 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-10-20 13:51:17 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-10-20 13:51:17 --> Fetche the results ::
+2019-10-20 13:51:17 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],]
+2019-10-20 13:51:17 --> Request finished, shuttting down the logger
+
+2019-10-20 13:51:27 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-10-20 13:51:27 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-10-20 13:51:27 --> Fetche the results ::
+2019-10-20 13:51:27 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-10-20 13:51:27 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-10-20 13:51:27 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-10-20 13:51:27 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions` WHERE `Id` = '5d714807cccf9'
+2019-10-20 13:51:27 --> Fetche the results ::
+2019-10-20 13:51:27 --> [[5d714807cccf9,f941aa901a5b9de4fab3ba1dca3967b1,2019-09-06 19:38:15,cascade,7115,]]
+2019-10-20 13:51:27 --> Current Session fetched : 
+2019-10-20 13:51:27 --> [5d714807cccf9,f941aa901a5b9de4fab3ba1dca3967b1,2019-09-06 19:38:15,cascade,7115,]
+2019-10-20 13:51:27 --> Request finished, shuttting down the logger
+
+2019-11-05 21:54:27 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-05 21:54:27 --> Request finished, shuttting down the logger
+
+2019-11-05 21:54:33 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-05 21:54:33 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-05 21:54:33 --> Fetche the results ::
+2019-11-05 21:54:33 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-05 21:54:33 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-05 21:54:33 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-05 21:54:33 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-05 21:54:33 --> Fetche the results ::
+2019-11-05 21:54:33 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],]
+2019-11-05 21:54:33 --> Request finished, shuttting down the logger
+
+2019-11-05 21:54:38 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-05 21:54:38 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-05 21:54:38 --> Fetche the results ::
+2019-11-05 21:54:38 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-05 21:54:38 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-05 21:54:38 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-05 21:54:38 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '20'
+2019-11-05 21:54:38 --> Fetche the results ::
+2019-11-05 21:54:38 --> [[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,]]
+2019-11-05 21:54:38 --> Request finished, shuttting down the logger
+
+2019-11-06 09:21:29 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 09:21:29 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 09:21:29 --> Fetche the results ::
+2019-11-06 09:21:29 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:21:29 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 09:21:29 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:21:30 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '20'
+2019-11-06 09:21:30 --> Fetche the results ::
+2019-11-06 09:21:30 --> [[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,]]
+2019-11-06 09:21:30 --> Request finished, shuttting down the logger
+
+2019-11-06 09:21:46 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 09:21:46 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 09:21:46 --> Fetche the results ::
+2019-11-06 09:21:46 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:21:46 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 09:21:46 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:21:47 --> sql after replace 
+2019-11-06 09:21:47 --> INSERT INTO ASessions_Content (ASession_Id, Type, Title, Text_Content, File_Name) VALUES ('5d714807cccf9', '0', 'JWL_PASSWORD', 'wJw6h7qJZC', NULL)
+2019-11-06 09:21:47 --> DBC->Add executed:
+2019-11-06 09:21:47 --> SQL:
+2019-11-06 09:21:47 --> INSERT INTO ASessions_Content (ASession_Id, Type, Title, Text_Content, File_Name) VALUES ('5d714807cccf9', '0', 'JWL_PASSWORD', 'wJw6h7qJZC', NULL)
+2019-11-06 09:21:47 --> Connection:
+2019-11-06 09:21:47 --> INSERT INTO ASessions_Content (ASession_Id, Type, Title, Text_Content, File_Name) VALUES ('5d714807cccf9', '0', 'JWL_PASSWORD', 'wJw6h7qJZC', NULL)
+2019-11-06 09:21:47 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_content` WHERE `ASession_Id` = '5d714807cccf9' AND `Title` = 'JWL_PASSWORD' AND `Text_Content` = 'wJw6h7qJZC'
+2019-11-06 09:21:47 --> Fetche the results ::
+2019-11-06 09:21:47 --> []
+2019-11-06 09:21:47 --> Request finished, shuttting down the logger
+
+2019-11-06 09:22:12 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 09:22:12 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 09:22:12 --> Fetche the results ::
+2019-11-06 09:22:12 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:22:12 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 09:22:12 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:22:13 --> sql after replace 
+2019-11-06 09:22:13 --> INSERT INTO ASessions_Content (ASession_Id, Type, Title, Text_Content, File_Name) VALUES ('5d714807cccf9', '0', 'JWL_USN', 'H6V2wVBn6i', NULL)
+2019-11-06 09:22:13 --> DBC->Add executed:
+2019-11-06 09:22:13 --> SQL:
+2019-11-06 09:22:13 --> INSERT INTO ASessions_Content (ASession_Id, Type, Title, Text_Content, File_Name) VALUES ('5d714807cccf9', '0', 'JWL_USN', 'H6V2wVBn6i', NULL)
+2019-11-06 09:22:13 --> Connection:
+2019-11-06 09:22:13 --> INSERT INTO ASessions_Content (ASession_Id, Type, Title, Text_Content, File_Name) VALUES ('5d714807cccf9', '0', 'JWL_USN', 'H6V2wVBn6i', NULL)
+2019-11-06 09:22:13 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_content` WHERE `ASession_Id` = '5d714807cccf9' AND `Title` = 'JWL_USN' AND `Text_Content` = 'H6V2wVBn6i'
+2019-11-06 09:22:13 --> Fetche the results ::
+2019-11-06 09:22:13 --> []
+2019-11-06 09:22:13 --> Request finished, shuttting down the logger
+
+2019-11-06 09:27:37 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 09:27:38 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 09:27:38 --> Fetche the results ::
+2019-11-06 09:27:38 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:27:38 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 09:27:38 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:27:38 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '-1'
+2019-11-06 09:27:38 --> Fetche the results ::
+2019-11-06 09:27:38 --> []
+2019-11-06 09:27:38 --> Request finished, shuttting down the logger
+
+2019-11-06 09:27:46 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 09:27:46 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 09:27:46 --> Fetche the results ::
+2019-11-06 09:27:46 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:27:46 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 09:27:46 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:27:46 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-06 09:27:46 --> Fetche the results ::
+2019-11-06 09:27:46 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-06 09:27:46 --> Request finished, shuttting down the logger
+
+2019-11-06 09:27:49 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 09:27:49 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 09:27:49 --> Fetche the results ::
+2019-11-06 09:27:49 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:27:49 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 09:27:49 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 09:27:49 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 09:27:49 --> Fetche the results ::
+2019-11-06 09:27:49 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 09:27:49 --> Request finished, shuttting down the logger
+
+2019-11-06 15:04:54 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:04:58 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:04:58 --> Fetche the results ::
+2019-11-06 15:04:58 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:04:58 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:04:58 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:05:01 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 15:05:01 --> Fetche the results ::
+2019-11-06 15:05:01 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 15:05:01 --> Request finished, shuttting down the logger
+
+2019-11-06 15:05:01 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:05:02 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:05:02 --> Fetche the results ::
+2019-11-06 15:05:02 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:05:02 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:05:02 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:05:02 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 15:05:02 --> Fetche the results ::
+2019-11-06 15:05:02 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 15:05:02 --> Request finished, shuttting down the logger
+
+2019-11-06 15:17:20 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:17:26 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:17:26 --> Fetche the results ::
+2019-11-06 15:17:26 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:17:26 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:17:26 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:17:30 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '28'
+2019-11-06 15:17:30 --> Fetche the results ::
+2019-11-06 15:17:30 --> [[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,]]
+2019-11-06 15:17:30 --> Request finished, shuttting down the logger
+
+2019-11-06 15:17:48 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:17:53 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:17:53 --> Fetche the results ::
+2019-11-06 15:17:53 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:17:53 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:17:53 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:17:56 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '28'
+2019-11-06 15:17:56 --> Fetche the results ::
+2019-11-06 15:17:56 --> [[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,]]
+2019-11-06 15:17:56 --> Request finished, shuttting down the logger
+
+2019-11-06 15:17:56 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:17:56 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:17:56 --> Fetche the results ::
+2019-11-06 15:17:56 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:17:56 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:17:56 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:17:57 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-06 15:17:57 --> Fetche the results ::
+2019-11-06 15:17:57 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-06 15:17:57 --> Request finished, shuttting down the logger
+
+2019-11-06 15:17:59 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:18:00 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:18:00 --> Fetche the results ::
+2019-11-06 15:18:00 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:18:00 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:18:00 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:18:00 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '28'
+2019-11-06 15:18:00 --> Fetche the results ::
+2019-11-06 15:18:00 --> [[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,]]
+2019-11-06 15:18:00 --> Request finished, shuttting down the logger
+
+2019-11-06 15:18:12 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:18:13 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:18:13 --> Fetche the results ::
+2019-11-06 15:18:13 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:18:13 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:18:13 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:18:13 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 15:18:13 --> Fetche the results ::
+2019-11-06 15:18:13 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 15:18:13 --> Request finished, shuttting down the logger
+
+2019-11-06 15:18:50 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:18:54 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:18:54 --> Fetche the results ::
+2019-11-06 15:18:54 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:18:54 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:18:54 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:18:59 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 15:18:59 --> Fetche the results ::
+2019-11-06 15:18:59 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 15:18:59 --> Request finished, shuttting down the logger
+
+2019-11-06 15:23:11 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:23:11 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:23:11 --> Fetche the results ::
+2019-11-06 15:23:11 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:23:11 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:23:11 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:23:12 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 15:23:12 --> Fetche the results ::
+2019-11-06 15:23:12 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 15:23:12 --> Request finished, shuttting down the logger
+
+2019-11-06 15:59:24 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:59:34 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:59:34 --> Fetche the results ::
+2019-11-06 15:59:34 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:59:34 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:59:34 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:59:36 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 15:59:36 --> Fetche the results ::
+2019-11-06 15:59:36 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 15:59:36 --> Request finished, shuttting down the logger
+
+2019-11-06 15:59:36 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 15:59:37 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 15:59:37 --> Fetche the results ::
+2019-11-06 15:59:37 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:59:37 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 15:59:37 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 15:59:37 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 15:59:37 --> Fetche the results ::
+2019-11-06 15:59:37 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 15:59:37 --> Request finished, shuttting down the logger
+
+2019-11-06 16:02:26 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 16:02:31 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 16:02:31 --> Fetche the results ::
+2019-11-06 16:02:31 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 16:02:31 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 16:02:31 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 16:02:35 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 16:02:35 --> Fetche the results ::
+2019-11-06 16:02:35 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 16:02:35 --> Request finished, shuttting down the logger
+
+2019-11-06 16:02:51 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 16:02:51 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 16:02:51 --> Fetche the results ::
+2019-11-06 16:02:51 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 16:02:51 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 16:02:51 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 16:02:52 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 16:02:52 --> Fetche the results ::
+2019-11-06 16:02:52 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 16:02:52 --> Request finished, shuttting down the logger
+
+2019-11-06 16:51:05 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 16:51:05 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 16:51:05 --> Fetche the results ::
+2019-11-06 16:51:05 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 16:51:05 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 16:51:05 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 16:51:06 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-06 16:51:06 --> Fetche the results ::
+2019-11-06 16:51:06 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-06 16:51:06 --> Request finished, shuttting down the logger
+
+2019-11-06 16:53:08 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-06 16:53:11 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-06 16:53:11 --> Fetche the results ::
+2019-11-06 16:53:11 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 16:53:11 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-06 16:53:11 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-06 16:53:11 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-06 16:53:11 --> Fetche the results ::
+2019-11-06 16:53:11 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-06 16:53:11 --> Request finished, shuttting down the logger
+
+2019-11-07 12:56:56 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-07 12:56:57 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-07 12:56:57 --> Fetche the results ::
+2019-11-07 12:56:57 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-07 12:56:57 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-07 12:56:57 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-07 12:56:57 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-07 12:56:57 --> Fetche the results ::
+2019-11-07 12:56:57 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-07 12:56:57 --> Request finished, shuttting down the logger
+
+2019-11-07 12:57:00 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-07 12:57:01 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-07 12:57:01 --> Fetche the results ::
+2019-11-07 12:57:01 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-07 12:57:01 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-07 12:57:01 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-07 12:57:01 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-07 12:57:01 --> Fetche the results ::
+2019-11-07 12:57:01 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-07 12:57:01 --> Request finished, shuttting down the logger
+
+2019-11-07 14:10:44 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-07 14:10:44 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-07 14:10:44 --> Fetche the results ::
+2019-11-07 14:10:44 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-07 14:10:44 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-07 14:10:44 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-07 14:10:45 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-07 14:10:45 --> Fetche the results ::
+2019-11-07 14:10:45 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-07 14:10:45 --> Request finished, shuttting down the logger
+
+2019-11-07 14:10:46 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-07 14:10:47 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-07 14:10:47 --> Fetche the results ::
+2019-11-07 14:10:47 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-07 14:10:47 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-07 14:10:47 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-07 14:10:47 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-07 14:10:47 --> Fetche the results ::
+2019-11-07 14:10:47 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-07 14:10:47 --> Request finished, shuttting down the logger
+
+2019-11-20 15:54:23 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-20 15:54:23 --> Request finished, shuttting down the logger
+
+2019-11-20 15:54:27 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-20 15:54:28 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-20 15:54:28 --> Fetche the results ::
+2019-11-20 15:54:28 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-20 15:54:28 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-20 15:54:28 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-20 15:54:28 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-20 15:54:28 --> Fetche the results ::
+2019-11-20 15:54:28 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-20 15:54:28 --> Request finished, shuttting down the logger
+
+2019-11-20 15:54:32 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-20 15:54:33 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-20 15:54:33 --> Fetche the results ::
+2019-11-20 15:54:33 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-20 15:54:33 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-20 15:54:33 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-20 15:54:33 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-20 15:54:33 --> Fetche the results ::
+2019-11-20 15:54:33 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-20 15:54:33 --> Request finished, shuttting down the logger
+
+2019-11-21 10:49:34 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-21 10:49:34 --> Request finished, shuttting down the logger
+
+2019-11-21 10:49:39 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-21 10:49:39 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-21 10:49:39 --> Fetche the results ::
+2019-11-21 10:49:39 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-21 10:49:39 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-21 10:49:39 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-21 10:49:40 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-21 10:49:40 --> Fetche the results ::
+2019-11-21 10:49:40 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-21 10:49:40 --> Request finished, shuttting down the logger
+
+2019-11-21 10:49:43 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-21 10:49:43 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-21 10:49:43 --> Fetche the results ::
+2019-11-21 10:49:43 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-21 10:49:43 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-21 10:49:43 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-21 10:49:43 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-21 10:49:43 --> Fetche the results ::
+2019-11-21 10:49:43 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-21 10:49:43 --> Request finished, shuttting down the logger
+
+2019-11-23 17:41:36 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-23 17:41:36 --> Request finished, shuttting down the logger
+
+2019-11-23 17:41:40 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-23 17:41:40 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-23 17:41:40 --> Fetche the results ::
+2019-11-23 17:41:40 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-23 17:41:40 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-23 17:41:40 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-23 17:41:41 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-23 17:41:41 --> Fetche the results ::
+2019-11-23 17:41:41 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-23 17:41:41 --> Request finished, shuttting down the logger
+
+2019-11-23 17:41:42 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-23 17:41:43 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-23 17:41:43 --> Fetche the results ::
+2019-11-23 17:41:43 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-23 17:41:43 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-23 17:41:43 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-23 17:41:43 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-23 17:41:43 --> Fetche the results ::
+2019-11-23 17:41:43 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-23 17:41:43 --> Request finished, shuttting down the logger
+
+2019-11-24 19:02:04 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-24 19:02:04 --> Request finished, shuttting down the logger
+
+2019-11-24 19:02:09 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-24 19:02:09 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-24 19:02:09 --> Fetche the results ::
+2019-11-24 19:02:09 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-24 19:02:09 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-24 19:02:09 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-24 19:02:10 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-24 19:02:10 --> Fetche the results ::
+2019-11-24 19:02:10 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-24 19:02:10 --> Request finished, shuttting down the logger
+
+2019-11-24 19:02:13 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-24 19:02:13 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-24 19:02:13 --> Fetche the results ::
+2019-11-24 19:02:13 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-24 19:02:13 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-24 19:02:13 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-24 19:02:13 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-24 19:02:13 --> Fetche the results ::
+2019-11-24 19:02:13 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-24 19:02:13 --> Request finished, shuttting down the logger
+
+2019-11-24 20:33:05 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-24 20:33:05 --> Request finished, shuttting down the logger
+
+2019-11-24 20:33:08 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-24 20:33:08 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-24 20:33:08 --> Fetche the results ::
+2019-11-24 20:33:08 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-24 20:33:08 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-24 20:33:08 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-24 20:33:09 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-24 20:33:09 --> Fetche the results ::
+2019-11-24 20:33:09 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-24 20:33:09 --> Request finished, shuttting down the logger
+
+2019-11-24 20:33:11 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-24 20:33:12 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-24 20:33:12 --> Fetche the results ::
+2019-11-24 20:33:12 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-24 20:33:12 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-24 20:33:12 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-24 20:33:12 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-24 20:33:12 --> Fetche the results ::
+2019-11-24 20:33:12 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-24 20:33:12 --> Request finished, shuttting down the logger
+
+2019-11-28 14:23:41 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-28 14:23:42 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-28 14:23:42 --> Fetche the results ::
+2019-11-28 14:23:42 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-28 14:23:42 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-28 14:23:42 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-28 14:23:42 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-28 14:23:42 --> Fetche the results ::
+2019-11-28 14:23:42 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-28 14:23:42 --> Request finished, shuttting down the logger
+
+2019-11-28 14:23:51 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-28 14:23:52 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-28 14:23:52 --> Fetche the results ::
+2019-11-28 14:23:52 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-28 14:23:52 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-28 14:23:52 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-28 14:23:52 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-28 14:23:52 --> Fetche the results ::
+2019-11-28 14:23:52 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-28 14:23:52 --> Request finished, shuttting down the logger
+
+2019-11-30 19:37:09 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-30 19:37:10 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-30 19:37:10 --> Fetche the results ::
+2019-11-30 19:37:10 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 19:37:10 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-30 19:37:10 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 19:37:10 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-30 19:37:10 --> Fetche the results ::
+2019-11-30 19:37:10 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-30 19:37:10 --> Request finished, shuttting down the logger
+
+2019-11-30 19:37:12 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-30 19:37:13 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-30 19:37:13 --> Fetche the results ::
+2019-11-30 19:37:13 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 19:37:13 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-30 19:37:13 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 19:37:13 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-30 19:37:13 --> Fetche the results ::
+2019-11-30 19:37:13 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-30 19:37:13 --> Request finished, shuttting down the logger
+
+2019-11-30 21:45:39 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-30 21:45:40 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-30 21:45:40 --> Fetche the results ::
+2019-11-30 21:45:40 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 21:45:40 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-30 21:45:40 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 21:45:40 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-30 21:45:40 --> Fetche the results ::
+2019-11-30 21:45:40 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-30 21:45:40 --> Request finished, shuttting down the logger
+
+2019-11-30 21:45:44 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-30 21:45:44 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-30 21:45:44 --> Fetche the results ::
+2019-11-30 21:45:44 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 21:45:44 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-30 21:45:44 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 21:45:45 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-30 21:45:45 --> Fetche the results ::
+2019-11-30 21:45:45 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-30 21:45:45 --> Request finished, shuttting down the logger
+
+2019-11-30 22:13:50 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-30 22:13:50 --> Request finished, shuttting down the logger
+
+2019-11-30 22:13:54 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-30 22:13:55 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-30 22:13:55 --> Fetche the results ::
+2019-11-30 22:13:55 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 22:13:55 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-30 22:13:55 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 22:13:55 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-11-30 22:13:55 --> Fetche the results ::
+2019-11-30 22:13:55 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-11-30 22:13:55 --> Request finished, shuttting down the logger
+
+2019-11-30 22:27:28 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-11-30 22:27:28 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-11-30 22:27:28 --> Fetche the results ::
+2019-11-30 22:27:28 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 22:27:28 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-11-30 22:27:28 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-11-30 22:27:28 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0' AND `ASessions_Content`.`CID` = '27'
+2019-11-30 22:27:28 --> Fetche the results ::
+2019-11-30 22:27:28 --> [[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,]]
+2019-11-30 22:27:28 --> Request finished, shuttting down the logger
+
+2019-12-01 00:31:08 --> Logger started with id cee18857e1d3e385d944ce623a580e1a
+2019-12-01 00:31:09 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Users` WHERE `ASessions_Users`.`ASession_Id` = '5d714807cccf9' AND `ASessions_Users`.`User_Id` = 'cee18857e1d3e385d944ce623a580e1a'
+2019-12-01 00:31:09 --> Fetche the results ::
+2019-12-01 00:31:09 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-12-01 00:31:09 --> checkAsession called with 5d714807cccf9and cee18857e1d3e385d944ce623a580e1a with result: 
+2019-12-01 00:31:09 --> [[97,cee18857e1d3e385d944ce623a580e1a,5d714807cccf9,4577,]]
+2019-12-01 00:31:09 --> getEntriesWhere executed with sql: SELECT * FROM `ASessions_Content` WHERE `ASessions_Content`.`Asession_Id` = '5d714807cccf9' AND `ASessions_Content`.`Type` = '0'
+2019-12-01 00:31:09 --> Fetche the results ::
+2019-12-01 00:31:09 --> [[12,5d714807cccf9,0,DB%20Access,I9R2LtQaHz,,],[19,5d714807cccf9,0,sidebar%20color,linear-gradient(rgba(25%2C25%2C0%2C0.2)%2Crgba(0%2C0%2C0%2C0))%2C%236195FF,,],[20,5d714807cccf9,0,JWLStore,Username%3A%20H6V2wVBn6i%0APassword%3A%20wJw6h7qJZC,,],[21,5d714807cccf9,0,QTransfer%20DB_Crd,g1kO1UFCRu%20%3A%20I9R2LtQaHz,,],[27,5d714807cccf9,0,JWL_PASSWORD,wJw6h7qJZC,,],[28,5d714807cccf9,0,JWL_USN,H6V2wVBn6i,,],]
+2019-12-01 00:31:09 --> Request finished, shuttting down the logger
+
