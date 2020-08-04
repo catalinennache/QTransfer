@@ -1,5 +1,5 @@
 var dbtools = require('./DBTools');
-
+var cryptok = require('./CryptoK');
 
 
 
@@ -179,6 +179,12 @@ module.exports = {
 
    async DeleteContent(cid){
                 var err = "";
+                var rez = await dbtools.asyncQuery("select * from asession_contents where id = '"+cid+"'");
+                console.log(rez);
+                if(rez[0].file_path){
+                    var fs = require('fs');
+                    fs.unlinkSync('./asession_uploads/'+rez[0].file_path);
+                }
                 await dbtools.asyncQuery("delete from asession_contents where id = '"+cid+"'",err);
                 return {success:true};
     },
@@ -193,6 +199,33 @@ module.exports = {
                 else
                 resolve(undefined);
             })
+        })
+    },
+
+    AddFile(asession_id,title,fileName){
+        return new Promise(async(resolve,reject)=>{
+            this.getAsessionPK(asession_id).then(async pk=>{
+                var fileCode = cryptok.generateRandomASCII(32);
+                var sql = "insert into asession_contents (asession_pk,title,file_path,file_name) values ('"+pk+"','"+title+"','"+fileCode+"','"+fileName+"')";
+                var result = await dbtools.asyncQuery(sql);
+                if(result && result.insertId)
+                    resolve({id:result.insertId,fileCode:fileCode});
+                    else
+                    resolve(undefined);
+                })
+            })
+    },
+    getFile(id){
+        return new Promise(async(resolve,reject)=>{ 
+            var sql = "select file_path,file_name from asession_contents where id = '"+id+"'";
+            console.log(sql);
+            var result = await dbtools.asyncQuery(sql);
+            console.log(result);
+            if(result && result[0]){
+                resolve(result[0]);
+            }else
+                resolve(undefined);
+        
         })
     }
 

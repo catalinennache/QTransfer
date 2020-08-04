@@ -39,7 +39,7 @@ window.filecard = `<div class="col-md-4 flip-card" style="">
         <h3 style="margin-bottom:0;">%%title%%</h3>
         <div class="feature">
             <i class="fa fa-info"></i>
-            <p>%%type%% File (%%extension%%)</p>
+            <p>%%extension%% File</p>
         </div>
         <div class="feature">
             <i class="fa fa-info"></i>
@@ -47,16 +47,16 @@ window.filecard = `<div class="col-md-4 flip-card" style="">
         </div>
         <div class="feature">
             <i class="fa fa-info"></i>
-            <p>Uploaded %%UET%% ago.</p>
+            <p>Uploaded %%UTE%% ago.</p>
         </div>
         <div class="feature">
             <i class="fa fa-info"></i>
             <p>%%download_times%% Downloads</p>
         </div>
 
-        <a href="javascript:void(0)" cid="%%content_id%%" onclick="">Download</a>
+        <a href="javascript:void(0)" cid="%%content_id%%" onclick="Download(this)">Download</a>
         <span>|</span>
-        <a href="javascript:void(0)" cid="%%content_id%%" onclick="">Delete</a>
+        <a href="javascript:void(0)" cid="%%content_id%%" onclick="Delete(this)">Delete</a>
 
     </div>
 
@@ -122,8 +122,25 @@ window.createClipboardCard = function (card_info) {
 
 };
 
-window.createFileCard = function () {
-
+window.createFileCard = function (card_info) {
+    console.log("Creating card ",card_info);
+    var id = card_info.id;
+    var title = decodeURIComponent(card_info.title);
+    var parent = $('.card-view')[0];
+    var vector =  document.createElement('div'); //<div class="col-md-4 flip-card" style=""></div>
+    vector.classList.add('col-md-4');
+    vector.classList.add('flip-card');
+    var card = window.filecard;
+    card = card.replace("%%title%%", title);
+    card = card.replace('%%8ch%%', "FILE");
+    card = card.replace('%%extension%%', "N/A");
+    card = card.replace("%%size%%","N/A");
+    card = card.replace("%%UTE%%", "0 min");
+    card = card.replace("%%download_times%%", "0");
+    card = card.replace("%%content_id%%",id);
+    card = card.replace("%%content_id%%",id);
+    vector.innerHTML = card;
+    parent.appendChild(vector);
 }
 
 window.createLargeFileCard = function () {
