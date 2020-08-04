@@ -111,11 +111,11 @@
                     
                     </div>
                 </section>
-                <h3>Large File</h3>
+                <!--h3>Large File</h3>
                 <section>
                     <div class="cnt">
                     </div>
-                </section>
+                </section-->
             </div>
         </div>
         
@@ -181,7 +181,7 @@
             var payload = new FormData();
            Array.from(inputs).forEach( input => {
                 payload.append(input.name, input.type == "checkbox"?input.checked:input.type=="file"?input.files[0]:encodeURIComponent( input.value));
-                unencodedPayload[input.name] =  input.type == "checkbox"?input.checked:input.type=="file"?input.files[0]:input.value;
+               // unencodedPayload[input.name] =  input.type == "checkbox"?input.checked:input.type=="file"?input.files[0]:input.value;
                
             });
     
@@ -215,14 +215,15 @@
                 url: "/ASession/AddFile",
                 data: payload,
                 success: function(data){
-                    data = JSON.parse(data);
+                   // data = JSON.parse(data);
                     console.log(data);
                     if(data.success){
-                        unencodedPayload.type = 1;
-                        unencodedPayload.cid = data.cid;
-                        console.log("unencodedPayload ",unencodedPayload);
-                        createContentCard(unencodedPayload);
-                        cleanUpForm();
+                    //    unencodedPayload.type = 1;
+                   //     unencodedPayload.cid = data.cid;
+                   //     console.log("unencodedPayload ",unencodedPayload);
+                   //     createContentCard(unencodedPayload);
+                        window["create"+data.type+"Card"](data);
+                      //  cleanUpForm();
                         $('.modal-wrapper').removeClass("exposed");
                         $('.modal-bg').removeClass("exposed");
                     }else{
@@ -268,6 +269,13 @@
                 }
             })
         });
+
+        function Download(element){
+            $(element).parents('.flip-card-inner').addClass('busy-card');
+            window.open("/Asession/Download?ref="+$(element).attr('cid'),"_blank");
+            $(element).parents('.flip-card-inner').removeClass('busy-card');
+                       
+        }
     
         function Copy(element){
             console.log("Copying element ",{cid:$(element).attr('cid')});

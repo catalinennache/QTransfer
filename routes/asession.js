@@ -149,6 +149,42 @@ router.post('/Create',async function(req,res,next){
         res.end(); 
 
 
+ });
+
+ router.post('/AddFile',async function(req,res,next){
+    var model = {success:false};
+    if(asession_helper.vaidateRequest(req)){
+        console.log(req.files.file.name,req.files.file.size);
+      
+        rez = await asession_helper.AddFile(req.session.asession_id,req.body.title,req.files.file.name);
+        if(rez){
+            model = {};
+            model.success = (rez!==undefined);
+            model.id = rez.id;
+           // console.log(model);
+            model.type = "File";
+            model.title = req.body.title;
+            //model.content = req.body.content;
+            //model.file = undefined;
+            
+            req.files.file.mv('./asession_uploads/'+rez.fileCode,function(){
+                
+            });
+
+        }
+    }
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(model));
+    res.end();
+ });
+ router.get('/Download',async function(req,res,next){
+    if(asession_helper.vaidateRequest(req)){
+      var info =  await asession_helper.getFile(req.query.ref);
+      console.log(info);
+      if(info)
+        res.download("./asession_uploads/"+info.file_path,info.file_name);
+    }
  })
  /*
  public function AddClip($req){
