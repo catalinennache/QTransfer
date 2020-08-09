@@ -48,11 +48,13 @@ app.use(function (req, res, next) {
   next();
 });
 app.use('/', indexRouter);
-app.use('/ASession',function(req,res,next){
+app.use('/ASession',async function(req,res,next){
   
-  if(asessions_tools.vaidateRequest(req)){
+  if(await asessions_tools.validateRequest(req)){
     next();
   }else{
+    req.session.asession_id = undefined;
+    req.session.save();
     res.redirect('/');
     
   }

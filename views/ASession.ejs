@@ -7,7 +7,6 @@
         <link rel="stylesheet" type="text/css" href='/css/font-awesome.min.css' />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
-    
         <script type="text/javascript" src="/js/jquery.steps.min.js"></script>
         <script type="text/javascript" src="/js/templates.js"></script>
     </head>
@@ -149,11 +148,25 @@
             }
         }
         */
-
-        window.assignHandlers = function(card){
-
+        var ws = new WebSocket('ws://localhost:3001');
+        window.ws = ws;
+        ws.onopen = function () {
+            console.log('websocket is connected ...')
+            ws.send(JSON.stringify({type:'register',value:'<%=asession_id%>'}))
         }
+        
 
+        ws.onmessage = function (ev) {
+            console.log(ev);
+            try{
+                var message = JSON.parse(ev.data);
+                if(message.type === "unregister")
+                    window.location.reload();
+            }catch(e){}
+        }
+       
+
+     
     
         $(document).ready(function (ev) {
             $('.cancel-btn-fm').on('click', function (ev) {

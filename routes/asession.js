@@ -4,9 +4,12 @@ var asession_helper = require('../tools/ASession');
 var router = express.Router();
 
 
-router.get('/', function(req, res, next) {
-
-    res.render('ASession', { title: 'Express', asession_avb:(req.session.asession_id !== undefined)});
+router.get('/',async function(req, res, next) {
+    //var ok = await asession_helper.validateRequest(req);
+    if(true)
+        res.render('ASession', { title: 'Express', asession_id:req.session.asession_id,asession_avb:(req.session.asession_id !== undefined)});
+    else
+        res.redirect('/');
 });
 
 router.post('/Create',async function(req,res,next){
@@ -23,6 +26,8 @@ router.post('/Create',async function(req,res,next){
            req.session.asession_id = result.asession_id;
            console.log("Asession created!");
            req.session.save();
+       }else{
+           console.log(result);
        }
     }
  
@@ -79,7 +84,7 @@ router.post('/Create',async function(req,res,next){
 
  router.post('/GetJoinCode',async function(req,response,next){
     
-    if(asession_helper.vaidateRequest(req)){
+    if(await asession_helper.validateRequest(req)){
         var model = {}
         var res = await asession_helper.getJoinCode(req.session.asession_id);
         console.log(res);
@@ -153,7 +158,7 @@ router.post('/Create',async function(req,res,next){
 
  router.post('/AddFile',async function(req,res,next){
     var model = {success:false};
-    if(asession_helper.vaidateRequest(req)){
+    if(await asession_helper.validateRequest(req)){
         console.log(req.files.file.name,req.files.file.size);
       
         rez = await asession_helper.AddFile(req.session.asession_id,req.body.title,req.files.file.name);
@@ -179,7 +184,7 @@ router.post('/Create',async function(req,res,next){
     res.end();
  });
  router.get('/Download',async function(req,res,next){
-    if(asession_helper.vaidateRequest(req)){
+    if(await asession_helper.validateRequest(req)){
       var info =  await asession_helper.getFile(req.query.ref);
       console.log(info);
       if(info)
