@@ -96,7 +96,7 @@
     
                 <h3>File</h3>
                 <section>
-                    <div class="cnt" style="">
+                    <div class="cnt">
                         <div class="modal-row" style="margin-top:7px; ">
                             <label style="color: black;">Title</label>
                             <input type="text" name = "title" style="display: block; width:100%; opacity: 1;">
@@ -105,12 +105,32 @@
                             <label style="color: black;">File</label>
                             <input type="file" class="upfile" name="file" style="display: block; width:100%; opacity: 1; height: auto;padding:10px;">
                         </div>
+                        <div class="modal-row upload_stats hidden" style="margin-top:150px;text-align: center;">
+                            <span class="uploadspeed">N/A Mb/s</span>
+                            <div class="loading-bar">
+                                <div class="loaded"></div>
+                            </div>
+                        </div>
                         <input type="hidden" value="1" name="type">
                         <input type="button" value="Upload" class="upload-btn-fm">
                         <input type="button" value="Cancel" style="left: 24px; right:unset;" class="cancel-btn-fm">
                     
                     </div>
                 </section>
+                <style>
+                    .hidden{
+                        display: none;
+                    }
+                    .loading-bar{
+                        background: #e7e7ff;
+                        width:100%;
+                        height: 25px;
+                    }
+                    .loaded{
+                        height: 100%;
+                        background: #6195FF;
+                    }
+                </style>
                 <!--h3>Large File</h3>
                 <section>
                     <div class="cnt">
@@ -184,7 +204,9 @@
                // unencodedPayload[input.name] =  input.type == "checkbox"?input.checked:input.type=="file"?input.files[0]:input.value;
                
             });
-    
+            
+            $('.upload_stats').removeClass('hidden');
+            var last_state = 0;
             $.ajax({
                 xhr: function() {
                     var xhr = new window.XMLHttpRequest();
@@ -193,15 +215,17 @@
                     xhr.upload.addEventListener("progress", function(evt){
                         if (evt.lengthComputable) {
                         var percentComplete = evt.loaded / evt.total;
-                        //Do something with upload progress
-                            console.log(evt.loaded,evt.total);
-                            }
+                        $('.loaded').css('width',Math.floor(percentComplete*100)+"%");
+                         $('.uploadspeed')[0].innerText = ""+(evt.loaded/(1000*1000)).toFixed(1)+"/"+(evt.total/(1000*1000)).toFixed(1)+" @ " + (((evt.loaded - last_state)/(1000*1000)).toFixed(1)+" Mb/s");  
+                            last_state = evt.loaded;
+                        }
                     }, false);
     
            // Download progress
                     xhr.addEventListener("progress", function(evt){
                         if (evt.lengthComputable) {
                             var percentComplete = evt.loaded / evt.total;
+
                    // Do something with download progress
                             console.log(percentComplete);
                         }
@@ -215,6 +239,8 @@
                 url: "/ASession/AddFile",
                 data: payload,
                 success: function(data){
+                $('.upload_stats').addClass('hidden');
+                $('.loaded').css('width','0%');
                    // data = JSON.parse(data);
                     console.log(data);
                     if(data.success){
