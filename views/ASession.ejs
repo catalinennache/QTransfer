@@ -148,7 +148,7 @@
             }
         }
         */
-        var ws = new WebSocket("ws://" + location.host +':3001');
+        var ws = new WebSocket("ws://" + location.host);
         window.ws = ws;
         ws.onopen = function () {
             console.log('websocket is connected ...')
