@@ -47,13 +47,17 @@ global.sql_connection.connect(function(err) {
         try{
            message = JSON.parse(message); 
           if(message.type === 'register'){
-            connected_peers[message.value] = ws;
+            connected_peers[message.value] = connected_peers[message.value]?connected_peers[message.value]:[];
+            connected_peers[message.value].push(ws);
             console.log(message,"registered");
           }
 
           if(message.type === "agc"){            
             if(connected_peers[message.value]){
-              connected_peers[message.value].send(JSON.stringify({type:'unregister'}));
+              connected_peers[message.value].forEach((peer)=>{
+                peer.send(JSON.stringify({type:'unregister'}));
+                
+              });
               console.log("Unregister evt sent");
             }
           }
