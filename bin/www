@@ -39,6 +39,8 @@ global.sql_connection.connect(function(err) {
     
     const wss = new WebSocket.Server({server});
     var connected_peers = {};
+    global.connected_peers = connected_peers;
+    console.log(typeof global.connected_peers);
     wss.on('connection', (ws) => {
       
    

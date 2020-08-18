@@ -5,11 +5,11 @@ var router = express.Router();
 
 
 router.get('/',async function(req, res, next) {
-    //var ok = await asession_helper.validateRequest(req);
-    if(true)
-        res.render('ASession', { title: 'Express', asession_id:req.session.asession_id,asession_avb:(req.session.asession_id !== undefined)});
-    else
-        res.redirect('/');
+    var asessesion = (await asession_helper.getAsession(req.session.asession_id))[0];
+    var cdate = Date.parse(asessesion.creation_date);
+    var diff = new Date().getTime() - cdate;
+    res.render('ASession', { title: 'Express',remaining_time:2-(diff/(1000*60*60)).toFixed(2), asession_id:req.session.asession_id,asession_avb:(req.session.asession_id !== undefined)});
+    
 });
 
 router.post('/Create',async function(req,res,next){
@@ -146,6 +146,11 @@ router.post('/Create',async function(req,res,next){
            model.file = undefined;
            
            model.success = true;
+           if(global.connected_peers && global.connected_peers[req.session.asession_id]){
+            global.connected_peers[req.session.asession_id].forEach((peer)=>{
+                peer.send(JSON.stringify({type:'cardsupdate',data:model}));
+            });
+           }
         }else{
             model.success = false;
         }
@@ -160,8 +165,9 @@ router.post('/Create',async function(req,res,next){
     var model = {success:false};
     if(await asession_helper.validateRequest(req)){
         console.log(req.files.file.name,req.files.file.size);
-      
+        console.log("adding file");
         rez = await asession_helper.AddFile(req.session.asession_id,req.body.title,req.files.file.name);
+        console.log("thread unfreazed",rez);
         if(rez){
             model = {};
             model.success = (rez!==undefined);
@@ -172,10 +178,14 @@ router.post('/Create',async function(req,res,next){
             //model.content = req.body.content;
             //model.file = undefined;
             
-            req.files.file.mv('./asession_uploads/'+rez.fileCode,function(){
-                
-            });
-
+            req.files.file.mv('./asession_uploads/'+rez.fileCode);
+            if(global.connected_peers && global.connected_peers[req.session.asession_id]){
+                global.connected_peers[req.session.asession_id].forEach((peer)=>{
+                    peer.send(JSON.stringify({type:'cardsupdate',data:model}));
+                });
+            }
+        }else{
+            res.status(501);
         }
     }
 

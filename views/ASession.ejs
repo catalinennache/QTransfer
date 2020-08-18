@@ -9,6 +9,7 @@
         <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="/js/jquery.steps.min.js"></script>
         <script type="text/javascript" src="/js/templates.js"></script>
+        <title><%=remaining_time%> hours remaining</title>
     </head>
     
     <body>
@@ -148,28 +149,81 @@
             }
         }
         */
-        var ws = new WebSocket("ws://" + location.host);
+        var ws = new WebSocket("ws"+(window.location.href.indexOf('https')>=0?"s":"")+"://" + location.host);
         window.ws = ws;
-        ws.onopen = function () {
-            console.log('websocket is connected ...')
+        ws.onopen = async function () {
+            console.log("Socket connecting... ");
+            while(ws.readyState === 0){
+             await new Promise(function(resolve,reject){setTimeout(function(){resolve()},1000)});
+            }
+            console.log("Socket connected "+ws.readyState);
             ws.send(JSON.stringify({type:'register',value:'<%=asession_id%>'}))
-        }
         
+            ws.onmessage = function (ev) {
+                console.log(ev);
+                try{
+                    var message = JSON.parse(ev.data);
+                    if(message.type === "unregister")
+                        window.location.href = "/";
+                    if(message.type === "cardsupdate"){
+                        window["create"+message.data.type+"Card"](message.data);
+                        console.log("executed "+"create"+message.data.type+"Card",window["create"+message.data.type+"Card"]);
+                    }    
+                }catch(e){console.error(e);}
+            }
 
-        ws.onmessage = function (ev) {
-            console.log(ev);
-            try{
-                var message = JSON.parse(ev.data);
-                if(message.type === "unregister")
-                    window.location.reload();
-            }catch(e){}
+
         }
        
+       
+        
+        (function(){
+            var rem = new Date().getTime() + <%=remaining_time%>*3600000;
+            var last_warning = 0;
+            var between_warnings = 0;
+
+            setTimeout(function(){
+                if(rem<new Date().getTime()+10*60*1000 && rem>new Date().getTime()+5*60*1000)
+                    alert("The session will expire in less than ten minutes!");
+                setTimeout(function(){
+                    if(rem<new Date().getTime()+5*60*1000)
+                    alert("The session will expire in less than five minutes!");
+                    setTimeout(function(){
+                        if(rem<new Date().getTime()+2*60*1000)
+                         alert("The session will expire in less than two minutes!");
+                    },3*60*1000)
+                },5*60*1000);
+            },<%=remaining_time%>*3600000-10*60*1000)
+            setInterval(function(){
+                if(rem<new Date().getTime()+10*60*1000){
+                    between_warnings+=10;
+                }
+                if(rem<new Date().getTime()+2*60*1000 && between_warnings>last_warning){
+                    alert("The session will expire in less than two minutes!");
+                    last_warning = 2*60;w
+                    return;
+                }
+
+                if(rem<new Date().getTime()+5*60*1000 && between_warnings>last_warning){
+                    alert("The session will expire in less thab fice minutes!");
+                    last_warning = 3*60;
+                    return;
+                }
+
+                if(rem<new Date().getTime()+10*60*1000 && between_warnings>last_warning){
+                    alert("The session will expire in less than ten minutes!");
+                    last_warning = <%=remaining_time%>*60*60-5*60;
+                    between_warnings = 0;
+                }
+            },10000)
+        }())
 
      
     
         $(document).ready(function (ev) {
             $('.cancel-btn-fm').on('click', function (ev) {
+                window.currentRequest?window.currentRequest.abort():undefined;
+                
                 $('.modal-wrapper').removeClass("exposed");
                 $('.modal-bg').removeClass("exposed");
             });
@@ -220,7 +274,7 @@
             
             $('.upload_stats').removeClass('hidden');
             var last_state = 0;
-            $.ajax({
+           window.currentRequest = $.ajax({
                 xhr: function() {
                     var xhr = new window.XMLHttpRequest();
     
@@ -261,7 +315,7 @@
                    //     unencodedPayload.cid = data.cid;
                    //     console.log("unencodedPayload ",unencodedPayload);
                    //     createContentCard(unencodedPayload);
-                        window["create"+data.type+"Card"](data);
+                    //    window["create"+data.type+"Card"](data);
                       //  cleanUpForm();
                         $('.modal-wrapper').removeClass("exposed");
                         $('.modal-bg').removeClass("exposed");
@@ -286,7 +340,7 @@
                 unencodedPayload[input.name] =  input.type == "checkbox"?input.checked:input.type=="file"?input.files:input.value;
                
             });
-            $.ajax({type:"POST",
+            window.currentRequest =  $.ajax({type:"POST",
                 url:"/Asession/AddClip",
                 data:payload,
                 success:function(data){
@@ -296,7 +350,7 @@
                         unencodedPayload.type = 0;
                         unencodedPayload.cid = data.cid;
                       //  console.log("unencodedPayload ",unencodedPayload);
-                        window["create"+data.type+"Card"](data);
+                      //  window["create"+data.type+"Card"](data);
                         $('.modal-wrapper').removeClass("exposed");
                         $('.modal-bg').removeClass("exposed");
                         
