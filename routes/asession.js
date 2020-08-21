@@ -4,9 +4,12 @@ var asession_helper = require('../tools/ASession');
 var router = express.Router();
 
 
-router.get('/', function(req, res, next) {
-
-    res.render('ASession', { title: 'Express', asession_avb:(req.session.asession_id !== undefined)});
+router.get('/',async function(req, res, next) {
+    var asessesion = (await asession_helper.getAsession(req.session.asession_id))[0];
+    var cdate = Date.parse(asessesion.creation_date);
+    var diff = new Date().getTime() - cdate;
+    res.render('ASession', { title: 'Express',remaining_time:2-(diff/(1000*60*60)).toFixed(2), asession_id:req.session.asession_id,asession_avb:(req.session.asession_id !== undefined)});
+    
 });
 
 router.post('/Create',async function(req,res,next){
@@ -23,6 +26,8 @@ router.post('/Create',async function(req,res,next){
            req.session.asession_id = result.asession_id;
            console.log("Asession created!");
            req.session.save();
+       }else{
+           console.log(result);
        }
     }
  
@@ -79,7 +84,7 @@ router.post('/Create',async function(req,res,next){
 
  router.post('/GetJoinCode',async function(req,response,next){
     
-    if(asession_helper.vaidateRequest(req)){
+    if(await asession_helper.validateRequest(req)){
         var model = {}
         var res = await asession_helper.getJoinCode(req.session.asession_id);
         console.log(res);
@@ -141,6 +146,11 @@ router.post('/Create',async function(req,res,next){
            model.file = undefined;
            
            model.success = true;
+           if(global.connected_peers && global.connected_peers[req.session.asession_id]){
+            global.connected_peers[req.session.asession_id].forEach((peer)=>{
+                peer.send(JSON.stringify({type:'cardsupdate',data:model}));
+            });
+           }
         }else{
             model.success = false;
         }
@@ -153,10 +163,11 @@ router.post('/Create',async function(req,res,next){
 
  router.post('/AddFile',async function(req,res,next){
     var model = {success:false};
-    if(asession_helper.vaidateRequest(req)){
+    if(await asession_helper.validateRequest(req)){
         console.log(req.files.file.name,req.files.file.size);
-      
+        console.log("adding file");
         rez = await asession_helper.AddFile(req.session.asession_id,req.body.title,req.files.file.name);
+        console.log("thread unfreazed",rez);
         if(rez){
             model = {};
             model.success = (rez!==undefined);
@@ -167,10 +178,14 @@ router.post('/Create',async function(req,res,next){
             //model.content = req.body.content;
             //model.file = undefined;
             
-            req.files.file.mv('./asession_uploads/'+rez.fileCode,function(){
-                
-            });
-
+            req.files.file.mv('./asession_uploads/'+rez.fileCode);
+            if(global.connected_peers && global.connected_peers[req.session.asession_id]){
+                global.connected_peers[req.session.asession_id].forEach((peer)=>{
+                    peer.send(JSON.stringify({type:'cardsupdate',data:model}));
+                });
+            }
+        }else{
+            res.status(501);
         }
     }
 
@@ -179,7 +194,7 @@ router.post('/Create',async function(req,res,next){
     res.end();
  });
  router.get('/Download',async function(req,res,next){
-    if(asession_helper.vaidateRequest(req)){
+    if(await asession_helper.validateRequest(req)){
       var info =  await asession_helper.getFile(req.query.ref);
       console.log(info);
       if(info)

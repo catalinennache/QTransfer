@@ -62,7 +62,7 @@ module.exports = {
             var con =  global.sql_connection;
             var sql = "select id from asessions where asession_id = '"+aid+"'";
             con.query(sql,function(err,results){
-                    if(!err)
+                    if(!err && results.length > 0)
                         resolve(results[0].id);
                         else
                         reject(err);
@@ -86,10 +86,17 @@ module.exports = {
         });
     },
 
-    vaidateRequest(req){
-        return (req.session.asession_id !== undefined && req.session.user_id === undefined)||req.url.endsWith('/Create') || req.url.endsWith('/Join');
+   async validateRequest(req){
+        var session = undefined;
+        var session_exists = req.session.asession_id && await new Promise((resolve,rj)=>{ global.sql_connection.query("select * from asessions where asession_id = '"+req.session.asession_id+"'",function(err,result){
+            session = result[0];
+            resolve(result.length == 1)
+        })});
+
+      return (session_exists && req.session.user_id === undefined)||req.url.endsWith('/Create') || req.url.endsWith('/Join');
     },
 
+   
   async getJoinCode(aid){
         var sql = "select join_code from asessions where asession_id = '"+aid+"'";
         var err = "";
@@ -227,6 +234,13 @@ module.exports = {
                 resolve(undefined);
         
         })
+    },
+
+    getAsession(asession_id){
+        return new Promise((resolve,reject)=>{
+            dbtools.asyncQuery("select * from asessions where asession_id = '"+asession_id+"'")
+            .then((result)=>{console.log(result); resolve(result)})
+        });
     }
 
 

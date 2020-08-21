@@ -20,6 +20,7 @@ global.sql_connection.connect(function(err) {
     var app = require('../app');
     var debug = require('debug')('quicktransfer:server');
     var http = require('http');
+    var WebSocket = require('ws');
 
     /**
      * Get port from environment and store in Express.
@@ -35,10 +36,55 @@ global.sql_connection.connect(function(err) {
 
 
     var server = http.createServer(app);
+    
+    const wss = new WebSocket.Server({server});
+    var connected_peers = {};
+    global.connected_peers = connected_peers;
+    console.log(typeof global.connected_peers);
+    wss.on('connection', (ws) => {
+      
+   
+      ws.on('message', (message) => {
+       // console.log(message);
+        try{
+           message = JSON.parse(message); 
+          if(message.type === 'register'){
+            connected_peers[message.value] = connected_peers[message.value]?connected_peers[message.value]:[];
+            connected_peers[message.value].push(ws);
+            console.log(message,"registered");
+          }
 
-    /**
-     * Listen on provided port, on all network interfaces.
-     */
+          if(message.type === "agc"){            
+            if(connected_peers[message.value]){
+              connected_peers[message.value].forEach((peer)=>{
+                peer.send(JSON.stringify({type:'unregister'}));
+                
+              });
+              console.log("Unregister evt sent");
+            }
+          }
+        } catch(e){} //console.log(e)}
+       });
+
+      //vulnerability?
+      ws.on('register',(asession_id)=>{
+        connected_peers[asession_id] = ws;
+      });
+      //-------------
+
+    
+  
+      //send immediatly a feedback to the incoming connection    
+      ws.send('200');
+    });
+
+    wss.on('close',(ws)=>{
+       Object.keys(connected_peers).forEach(key=>{
+          if(connected_peers[key]==ws){
+            connected_peers[key] = undefined;
+          }
+       });
+    });
 
     server.listen(port);
     server.on('error', onError);
