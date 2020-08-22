@@ -13,7 +13,7 @@
     </head>
     
     <body>
-        <div class="left-sidebar">
+        <div class="left-sidebar desktop">
             <div class="logo-holder">
                 <a href="/QuickTransfer">
                     <img src="/img/logo_qt.png" alt="">
@@ -24,23 +24,194 @@
             </div>
             <div class="social-holder">
                 <div class="social-list">
-                    <a id="signout" title="Leave the asession"><i class="fa fa-chevron-circle-left" style="font-size:32px;"></i></a>
-                    <a href="#"><i class="fa fa-file"></i></a>
-                    <a href="#"><i class="fa fa-clipboard"></i></a>
-                    <a href="#"><i class="fa fa-history"></i></a>
-                    <a id="join-request" title="Show the join code" style="cursor: pointer;"><i class="fa fa-share"></i></a>
+                    <a class="signout" title="Leave the asession"><i class="fa fa-chevron-circle-left" style="font-size:32px;"></i>
+                        <br>  <span class="label"> Sign Out </span>
+                    </a>
+                    <a href="#"><i class="fa fa-history"></i>
+                        <br>  <span class="label"> Extend Session Time </span>
+                    </a>
+                    <a class="join-request" title="Show the join code" style="cursor: pointer;"><i class="fa fa-share-alt" aria-hidden="true"></i>
+                      <br>  <span class="label"> Get Join Code </span>
+                    </a>
                 </div>
             </div>
             <div class="fixed countdown" style="position:relative;width:100%; text-align:center;"></div>
         </div>
+
+        <div class="left-sidebar-mobile hidden underlay">
+            <div class="left-sidebar">
+            <div class="logo-holder">
+                <a href="/QuickTransfer">
+                    <img src="/img/logo_qt.png" alt="">
+                </a>
+            </div>
+           
+            <div class="social-holder">
+                <div class="social-list">
+                    <a class="signout" title="Leave the asession"><i class="fa fa-chevron-circle-left" style="font-size:32px;"></i>
+                        <br>  <span class="label"> Sign Out </span>
+                    </a>
+                    <a href="#"><i class="fa fa-history"></i>
+                        <br>  <span class="label"> Extend Session Time </span>
+                    </a>
+                    <a class="join-request" title="Show the join code" style="cursor: pointer;"><i class="fa fa-share-alt" aria-hidden="true"></i>
+                      <br>  <span class="label"> Get Join Code </span>
+                    </a>
+                </div>
+            </div>
+            <div class="toggle-holder">
+                <span><i class="fa fa-plus"></i></span>
+            </div>
+            <div class="fixed countdown" style="position:relative;width:100%; text-align:center;"></div>
         </div>
+        </div>
+
+        
+        <div class="sidebar-opener">
+            <span class="button">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+
+            </span>
+        </div>
+        
+        <div class="top">
+            <span class="button">
+                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+            </span>
+        </div>
+
+        </div>
+        <script>
+            $('.toggle-holder').on('click',function(){
+                $('.left-sidebar-mobile .left-sidebar').removeClass('opened');
+                setTimeout(function(){$('.left-sidebar-mobile').addClass('hidden');},200)
+            })
+           $('.left-sidebar-mobile').on('click',function(evt){
+               if($(evt.target).closest('.left-sidebar').length == 0){
+                    $('.left-sidebar-mobile .left-sidebar').removeClass('opened');
+                    setTimeout(function(){$('.left-sidebar-mobile').addClass('hidden');},200)
+               }
+           })
+            $('.sidebar-opener').on('click',function(ev){
+                $('.left-sidebar-mobile').removeClass('hidden');
+                setTimeout(function(){$('.left-sidebar-mobile .left-sidebar').addClass('opened');},100)
+            })
+        </script>
     
         <div class="main-panel">
             <div class="section-header text-center">
                 <h2 class="title" style="text-align:center;">Anonymous Session</h2>
             </div>
             <style>
-    
+                .social-list>a{
+                    cursor: pointer;
+                }
+                .left-sidebar .label{
+                    font-size: 16px;
+                    line-height: 20px;
+                    margin-top: 20px;
+                    display: inline-block;
+                    padding:0 5px;
+                }
+                .top{
+                    position:fixed;
+                    bottom:17px;
+                    right:17px;
+                    color: #6195FF;
+                    font-size: 25px;
+                    background-color: white;
+                    display: none;
+                }
+                .sidebar-opener{
+                    position: fixed;
+                    left:17px;
+                    bottom:17px;
+                    color: #6195FF;
+                    font-size: 25px;
+                    background-color: white;
+                    display: none;
+                }
+               
+                .left-sidebar{
+                    background: white;
+                }
+                @media (orientation: landscape) {
+                    .left-sidebar-mobile{
+                        display: none;
+                    }
+                }
+                @media (orientation: portrait) {
+                    .fa.fa-plus{
+                    display: block;
+                }
+                    .toggle-holder{
+                        padding: 20px 0;
+                        position: absolute;
+                        bottom: 0px;
+                        height: auto;
+                    }
+                
+                .social-list{
+                    position: absolute;
+                    bottom: 150px;
+                    height: auto;
+                }
+                
+                .top,.sidebar-opener{
+                    display: block;
+                }
+                .left-sidebar-mobile{
+                    width:100vw;
+                    height: 100vh;
+                    background-color: rgba(0,0,0,0.5);
+                    position:fixed;
+                    top:0;
+                    left:0;
+                    z-index: 1000;
+                }
+
+                .desktop{
+                    display: none;
+                }
+                .left-sidebar-mobile .left-sidebar{
+                    transition: ease-out .2s;
+                    transform: translateX(-101px);
+                }
+                .left-sidebar-mobile .left-sidebar.opened{
+                    transform:translateX(0);
+                }
+                .left-sidebar-mobile{
+                    display: block;
+                }
+                .main-panel{
+                    width:100%;
+                }
+                .main-panel > .row{
+                    display: block;
+                    margin:0 auto!important;
+                }
+                .main-panel  .search{
+                    width:65%;
+                    float: none;
+                    margin:0 auto;
+                    display: block;
+                    margin-top: 30px;
+                }
+                .path,.show-style{
+                    display: none;
+                }
+                .card-view{
+                    margin:0 auto;
+                    margin-top:50px;
+                    width:auto!important;
+                    display: block!important;
+                }
+                .flip-card{
+                    display: block;
+                    margin:0 auto;
+                }
+                }
+                
             </style>
             <div class="row">
                 <div class="path">
@@ -165,9 +336,14 @@
                     var message = JSON.parse(ev.data);
                     if(message.type === "unregister")
                         window.location.href = "/";
-                    if(message.type === "cardsupdate"){
+                    if(message.type === "cardsadd"){
                         window["create"+message.data.type+"Card"](message.data);
                         console.log("executed "+"create"+message.data.type+"Card",window["create"+message.data.type+"Card"]);
+                    }
+                    if(message.type === "cardsdelete"){
+                        var cid = message.data;
+                        console.log("deleting "+cid);
+                        $('a[cid="'+cid+'"]').closest('.flip-card').remove();
                     }    
                 }catch(e){console.error(e);}
             }
@@ -221,29 +397,33 @@
      
     
         $(document).ready(function (ev) {
-            $('.cancel-btn-fm').on('click', function (ev) {
-                window.currentRequest?window.currentRequest.abort():undefined;
+            $('.cancel-btn-fm,.modal-wrapper').on('click', function (ev) {
+                console.log(ev.target);
+                if(ev.target.classList.contains('cancel-btn-fm') || $(ev.target).closest('.modal.tabcontrol.clearfix').length == 0){
+                    window.currentRequest?window.currentRequest.abort():undefined;
                 
-                $('.modal-wrapper').removeClass("exposed");
-                $('.modal-bg').removeClass("exposed");
+                    $('.modal-wrapper').removeClass("exposed");
+                    $('.modal-bg').removeClass("exposed");
+                }
             });
             $('.toggle-holder').on('click',function(){
                 $('.modal-wrapper').addClass("exposed");
                 $('.modal-bg').addClass("exposed");
             });
-            $('#join-request').on('click',async function(){
+            $('.join-request').on('click',async function(){
                 $('body').addClass('busy');
                try{ var result = await CodeRequest(); }catch(e){} 
                $('body').removeClass('busy');
                console.log("The join code is "+result);
-               alert("The join code is "+result);
+               alert("The join code is "+result.charAt(0).toUpperCase()+" "+result.charAt(1).toUpperCase()+" "+result.charAt(2).toUpperCase()+" "+result.charAt(3).toUpperCase());
             });
-            $('#signout').on('click',async function(ev){
+            $('.signout').on('click',async function(ev){
                $('body').addClass('busy');
                try{ var result = await SignoutRequest(); }catch(e){} 
                $('body').removeClass('busy');
                if(result.success){
-                   alert("Signed out successfully \nCome back anytime using the code "+result.joincode);
+                   result = result.joincode;
+                   alert("Signed out successfully \nCome back anytime using the code "+result.charAt(0).toUpperCase()+" "+result.charAt(1).toUpperCase()+" "+result.charAt(2).toUpperCase()+" "+result.charAt(3).toUpperCase());
                    window.location.reload();
                }
                // toast here
