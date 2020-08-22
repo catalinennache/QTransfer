@@ -124,6 +124,12 @@ router.post('/Create',async function(req,res,next){
  router.post('/DeleteContent',function(req,res,next){
         if(req.body.cid){
         try{  asession_helper.DeleteContent(req.body.cid);
+         
+           if(global.connected_peers && global.connected_peers[req.session.asession_id]){
+            global.connected_peers[req.session.asession_id].forEach((peer)=>{
+                peer.send(JSON.stringify({type:'cardsdelete',data:req.body.cid}));
+            });
+           }
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({success:true}));
             res.end(); 
@@ -148,7 +154,7 @@ router.post('/Create',async function(req,res,next){
            model.success = true;
            if(global.connected_peers && global.connected_peers[req.session.asession_id]){
             global.connected_peers[req.session.asession_id].forEach((peer)=>{
-                peer.send(JSON.stringify({type:'cardsupdate',data:model}));
+                peer.send(JSON.stringify({type:'cardsadd',data:model}));
             });
            }
         }else{
@@ -181,7 +187,7 @@ router.post('/Create',async function(req,res,next){
             req.files.file.mv('./asession_uploads/'+rez.fileCode);
             if(global.connected_peers && global.connected_peers[req.session.asession_id]){
                 global.connected_peers[req.session.asession_id].forEach((peer)=>{
-                    peer.send(JSON.stringify({type:'cardsupdate',data:model}));
+                    peer.send(JSON.stringify({type:'cardsadd',data:model}));
                 });
             }
         }else{

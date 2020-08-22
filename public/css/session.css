@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 .flip-card-inner:hover {
     box-shadow: 0px 0px 10px #6195FF;
     border-color: transparent;
-    transform: scale(1.01);
+   /* transform: scale(1.01);*/
 }
 
 .section-header {
@@ -256,9 +256,9 @@ input[type="text"]:focus {
     margin:0 auto;
     background: white;
     margin-top:100px;
-    max-width: 50%;
-    min-width: 500px;
-    width:max-content;
+    max-width: 500px;
+    width:87%;
+    
 }
 .modal-row{
     display: block;
