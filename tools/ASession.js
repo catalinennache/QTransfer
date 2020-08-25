@@ -90,7 +90,7 @@ module.exports = {
         var session = undefined;
         var session_exists = req.session.asession_id && await new Promise((resolve,rj)=>{ global.sql_connection.query("select * from asessions where asession_id = '"+req.session.asession_id+"'",function(err,result){
             session = result[0];
-            resolve(result.length == 1)
+            resolve(result.length == 1 && Date.parse(session.creation_date) + 2*60*60*1000 > Date.now())
         })});
 
       return (session_exists && req.session.user_id === undefined)||req.url.endsWith('/Create') || req.url.endsWith('/Join');

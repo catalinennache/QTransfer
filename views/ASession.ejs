@@ -80,6 +80,12 @@
             </span>
         </div>
 
+        <div class="search-btn">
+            <span class="button">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+        </div>
+
         </div>
         <script>
             $('.toggle-holder').on('click',function(){
@@ -95,6 +101,12 @@
             $('.sidebar-opener').on('click',function(ev){
                 $('.left-sidebar-mobile').removeClass('hidden');
                 setTimeout(function(){$('.left-sidebar-mobile .left-sidebar').addClass('opened');},100)
+            })
+            $('.search-btn').on('click',function(ev){
+                $('.search input').focus();
+            })
+            $('.top').on('click',function(){
+                $('.title')[0].scrollIntoView({ block: 'start',  behavior: 'smooth' })
             })
         </script>
     
@@ -115,7 +127,7 @@
                 }
                 .top{
                     position:fixed;
-                    bottom:17px;
+                    bottom:50vh;
                     right:17px;
                     color: #6195FF;
                     font-size: 25px;
@@ -124,8 +136,17 @@
                 }
                 .sidebar-opener{
                     position: fixed;
-                    left:17px;
-                    bottom:17px;
+                    right:20px;
+                    bottom:25vh;
+                    color: #6195FF;
+                    font-size: 25px;
+                    background-color: white;
+                    display: none;
+                }
+                .search-btn{
+                    position: fixed;
+                    right:20px;
+                    bottom:37vh;
                     color: #6195FF;
                     font-size: 25px;
                     background-color: white;
@@ -157,7 +178,7 @@
                     height: auto;
                 }
                 
-                .top,.sidebar-opener{
+                .top,.sidebar-opener,.search-btn{
                     display: block;
                 }
                 .left-sidebar-mobile{
@@ -203,12 +224,16 @@
                 .card-view{
                     margin:0 auto;
                     margin-top:50px;
-                    width:auto!important;
                     display: block!important;
+                    width: 80%;
+                    text-align: center;
                 }
-                .flip-card{
-                    display: block;
-                    margin:0 auto;
+            
+                .flip-card-inner h3{
+                    word-break: break-all;
+                }
+                .flip-card-inner{
+                   width:180px;
                 }
                 }
                 
@@ -320,6 +345,8 @@
             }
         }
         */
+    setInterval(function(){
+      if((!window.ws || window.ws.readyState == window.ws.CLOSED || window.ws.readyState== window.ws.CLOSING)){
         var ws = new WebSocket("ws"+(window.location.href.indexOf('https')>=0?"s":"")+"://" + location.host);
         window.ws = ws;
         ws.onopen = async function () {
@@ -349,7 +376,8 @@
             }
 
 
-        }
+        } 
+    }},2000);
        
        
         
