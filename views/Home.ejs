@@ -41,8 +41,8 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('/img/background1.jpg');">
-			<div class="overlay"></div>
+		<div class="bg-img"id="particles-js" style="background: rgb(22 25 49);">
+			
 		</div>
 		<!-- /Background Image -->
 
@@ -114,7 +114,7 @@
 	<!-- /Header -->
 
 	<!-- About -->
-	<div id="about" class="section md-padding">
+	<div id="about" class="section md-padding" >
 
 		<!-- Container -->
 		<div class="container">
@@ -144,7 +144,7 @@
 								<input maxlength="2" placeholder="" value="" />
 								<input maxlength="1" placeholder="" value="" />
 							</div>
-							<a href="javascript:void(0)" onclick=""  class="attempt-session">Enter</a>
+					<div class="btn-wrp">		<a href="javascript:void(0)" onclick="" style="margin-top:10px;cursor: pointer;display: block;"  class="attempt-session">Enter</a> </div>
 						</div>
 						<div class="flip-card-back" style="display: none; height: auto;">
 							<i class="fa fa-server"></i>
@@ -154,7 +154,7 @@
 								<input type="password" class="input" name="password" placeholder="Password"
 									style="margin-top:0;">
 								<div>	<div class="lds-ellipsis hidden hide-op" style="transition: 1s linear;"><div></div><div></div><div></div><div></div></div> </div>
-								<a class="join-session" style="margin-top:15px;cursor: pointer;" onclick="">Join</a>
+								<div class="btn-wrp">	<a class="join-session" style="margin-top:15px;cursor: pointer;display: block;" onclick="">Join</a> </div>
 							</div>
 						
 						</div>
@@ -181,7 +181,7 @@
 									<input type="password" class="input" name="password" placeholder="Password"
 										style="margin-top:0;">
 									<div>	<div class="lds-ellipsis hidden hide-op" style="transition: 1s linear;"><div></div><div></div><div></div><div></div></div> </div>
-									<a class="join-session" style="margin-top:15px;cursor: pointer;" onclick="">Join</a>
+									<div class="btn-wrp">	<a class="join-session" style="margin-top:15px;cursor: pointer;" onclick="">Join</a> </div>
 								</div>
 							
 							</div>
@@ -256,6 +256,20 @@
 					});
 				</script>
 				<style>
+					.home-wrapper{
+						backdrop-filter: grayscale(1);
+    					padding: 20px 0;
+					}
+					.btn-wrp{
+						width:calc(100% - 40px);
+						display: block;
+						position:absolute;
+						bottom:10px;
+					}
+					.btn-wrp a{
+						margin: 0 auto;
+						text-align: center;
+					}
 					input::-webkit-input-placeholder {
 						color: #6195FF !important;
 					}
@@ -289,14 +303,10 @@
 
 
 					.about:hover input {
-						color: white;
 						opacity: 1;
 
 					}
-					.flip-card-inner:hover .lds-ellipsis div {
-						background: #FFF;
-					}
-
+			
 					.flip-card-back {
 						width: 90%;
 						height: 100vh;
@@ -337,6 +347,7 @@
 
 					}
 
+
 					.inputs input:focus {
 						outline: none !important;
 
@@ -345,20 +356,24 @@
 
 					.flip-card-inner:hover {
 
-						border-color: transparent;
+						 box-shadow: 0px 0px 10px #6195FF;
 					}
 
 
 					.flip-card {
 						perspective: 1000px;
 					}
+					*{outline:none!important;}
 
 					.flip-card-inner {
-						transition: transform 0.6s;
+						user-select: none;
+						transition: transform 0.6s,0.35s ease-in-out!important;
 						transform-style: preserve-3d;
-						height: 337px;
-						max-height: 337px;
-						min-height: 337px;
+					
+						min-height: 350px;
+						box-shadow:0px 0px 10px 0px #c6c6c6;
+						background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) ), url('/img/card.png');
+						
 					}
 
 					.flipped-card .flip-card-inner {
@@ -482,7 +497,7 @@
 							</div>
 
 
-							<a href="javascript:void(0)" onclick="flip(this)">Cons</a>
+							<div class="btn-wrp">		<a href="javascript:void(0)" onclick="flip(this)">Cons</a> </div>
 						</div>
 						<div class="flip-card-back" style="display: none; height: auto;">
 							<i class="fa fa-info"></i>
@@ -499,7 +514,7 @@
 								<i class="fa fa-times"></i>
 								<p>Max file per upload is 150MB.</p>
 							</div>
-							<a href="javascript:void(0)" onclick="unflip(this)">Pros</a>
+							<div class="btn-wrp">	<a href="javascript:void(0)" onclick="unflip(this)">Pros</a> </div>
 						</div>
 					</div>
 
@@ -512,13 +527,13 @@
 								<i class="fa fa-server"></i>
 								<h3>Create Session</h3>
 								<p>Create a new transfer session where you can temporary store anything.</p>
-								<a href="javascript:void(0)" onclick="flip(this)">Create</a>
+								<div class="btn-wrp">	<a href="javascript:void(0)" onclick="flip(this)">Create</a> </div>
 							</div>
 							<div class="response bad-response" style="display:none;">
 								<i class="fa fa-server"></i>
 								<h3>Oops!</h3>
 								<p>Looks like something cracked. Refresh and try again? </p>
-								<a href="javascript:void(0)" onclick="window.location.reload()">Refresh</a>
+								<div class="btn-wrp">	<a href="javascript:void(0)" onclick="window.location.reload()">Refresh</a> </div>
 							</div>
 						</div>
 						<div class="flip-card-back" style="display: none; height: auto;">
@@ -530,7 +545,7 @@
 									<input type="password" class="input" name="cpassword" placeholder="Confirm Password"
 									style="margin-bottom:67px;margin-top:0;">
 								<div>	<div class="lds-ellipsis hidden hide-op" style="transition: 1s linear;"><div></div><div></div><div></div><div></div></div> </div>
-								<a class="create-session" style="margin-top:15px;cursor: pointer;">Create</a>
+								<div class="btn-wrp">	<a class="create-session" style="margin-top:15px;cursor: pointer;">Create</a> </div>
 							</div>
 						
 						</div>
@@ -587,6 +602,7 @@
 	<script type="text/javascript" src="/js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="/js/main.js"></script>
+	<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 	<script>
 		function delay(time){
 			return new Promise((resolve)=>{
@@ -669,7 +685,7 @@
 		});
 
 		
-
+		particlesJS("particles-js", {"particles":{"number":{"value":160,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":true,"speed":1,"opacity_min":0,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":4,"size_min":0.3,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":1,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":600}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"bubble"},"onclick":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":250,"size":0,"duration":2,"opacity":0,"speed":3},"repulse":{"distance":400,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
 
 	</script>
 </body>
