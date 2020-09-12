@@ -16,12 +16,6 @@
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
 
-	<!-- Owl Carousel -->
-	<link type="text/css" rel="stylesheet" href="/css/owl.carousel.css" />
-	<link type="text/css" rel="stylesheet" href="/css/owl.theme.default.css" />
-
-	<!-- Magnific Popup -->
-	<link type="text/css" rel="stylesheet" href="/css/magnific-popup.css" />
 
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -41,7 +35,7 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Background Image -->
-		<div class="bg-img"id="particles-js" style="background: rgb(22 25 49);">
+		<div class="bg-img"id="particles-js" style="background: #191631;">
 			
 		</div>
 		<!-- /Background Image -->
@@ -99,7 +93,7 @@
 							<h1 class="white-text">Your Digital Bridge Everyday</h1>
 							<p class="white-text">For an enhanced experience we suggest using an account
 							</p>
-							<a href="#about"><button class="white-btn">Anonymous Session</button></a>
+							<a href="#asess"><button class="white-btn">Anonymous Session</button></a>
 							<button class="main-btn">Use Account</button>
 						</div>
 					</div>
@@ -114,10 +108,10 @@
 	<!-- /Header -->
 
 	<!-- About -->
-	<div id="about" class="section md-padding" >
+	<div id="about" class="section md-padding" style="padding-top: 100px!important;">
 
 		<!-- Container -->
-		<div class="container">
+		<div class="container" id="asess" style="padding-top: 20px;">
 
 			<!-- Row -->
 			<div class="row">
@@ -146,11 +140,11 @@
 							</div>
 					<div class="btn-wrp">		<a href="javascript:void(0)" onclick="" style="margin-top:10px;cursor: pointer;display: block;"  class="attempt-session">Enter</a> </div>
 						</div>
-						<div class="flip-card-back" style="display: none; height: auto;">
+						<div class="flip-card-back" style="display: none; ">
 							<i class="fa fa-server"></i>
 							<h3>Join Session</h3>
 							<h3 style="font-size: 18px;">Enter the password</h3>
-							<div class="session-create">
+							<div class="session-create join-parent">
 								<input type="password" class="input" name="password" placeholder="Password"
 									style="margin-top:0;">
 								<div>	<div class="lds-ellipsis hidden hide-op" style="transition: 1s linear;"><div></div><div></div><div></div><div></div></div> </div>
@@ -173,11 +167,11 @@
 
 								<a href="/ASession"   class="">Enter</a>
 							</div>
-							<div class="flip-card-back" style="display: none; height: auto;">
+							<div class="flip-card-back" style="display: none; ">
 								<i class="fa fa-server"></i>
 								<h3>Join Session</h3>
 								<h3 style="font-size: 18px;">Enter the password</h3>
-								<div class="session-create">
+								<div class="session-create join-parent">
 									<input type="password" class="input" name="password" placeholder="Password"
 										style="margin-top:0;">
 									<div>	<div class="lds-ellipsis hidden hide-op" style="transition: 1s linear;"><div></div><div></div><div></div><div></div></div> </div>
@@ -256,9 +250,15 @@
 					});
 				</script>
 				<style>
+					#particles-js > *{
+						transition: 0.3s linear;
+					}
+					.hidden-particles > *{
+						opacity: 0;
+					}
 					.home-wrapper{
-						backdrop-filter: grayscale(1);
-    					padding: 20px 0;
+					/*	backdrop-filter: grayscale(1) blur(2px);*/
+    					padding: 40px 0;
 					}
 					.btn-wrp{
 						width:calc(100% - 40px);
@@ -311,10 +311,7 @@
 						width: 90%;
 						height: 100vh;
 						margin: 0 auto;
-						display: flex;
-						flex-direction: column;
-						justify-content: center;
-						align-items: center;
+					
 					}
 
 					.flip-card-back h1 {
@@ -499,7 +496,7 @@
 
 							<div class="btn-wrp">		<a href="javascript:void(0)" onclick="flip(this)">Cons</a> </div>
 						</div>
-						<div class="flip-card-back" style="display: none; height: auto;">
+						<div class="flip-card-back" style="display: none; ">
 							<i class="fa fa-info"></i>
 							<h3>Anonymous Usage</h3>
 							<div class="feature">
@@ -536,7 +533,7 @@
 								<div class="btn-wrp">	<a href="javascript:void(0)" onclick="window.location.reload()">Refresh</a> </div>
 							</div>
 						</div>
-						<div class="flip-card-back" style="display: none; height: auto;">
+						<div class="flip-card-back" style="display: none;">
 							<i class="fa fa-server"></i>
 							<h3>Create Session</h3>
 							<div class="session-create">
@@ -550,6 +547,7 @@
 						
 						</div>
 						<style>
+				
 							.session-create input {
 								margin: 13px 0;
 								color: black !important;
@@ -598,10 +596,7 @@
 
 	<!-- jQuery Plugins -->
 
-	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="/js/jquery.magnific-popup.js"></script>
-	<script type="text/javascript" src="/js/main.js"></script>
+
 	<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 	<script>
 		function delay(time){
@@ -662,8 +657,10 @@
 				code += element.value;
 			})
 			console.log("entered code ", code);
-			var password = $(this).parent().find('.input').val();
-			console.log("Password atempted ",$(this).parent().find('.input').val(),$(this).parent().find('.input'));
+			var password = $(this).closest(".join-parent").find('.input').val();
+			window.dbg = $(this)
+
+			console.log("Password atempted ",$(this).closest(".join-parent").find('.input').val(),$(this).closest(".join-parent"));
 			$.ajax({
 				type:'POST',
 				url:'/ASession/Join',
@@ -687,6 +684,34 @@
 		
 		particlesJS("particles-js", {"particles":{"number":{"value":160,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":true,"speed":1,"opacity_min":0,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":4,"size_min":0.3,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":1,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":600}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"bubble"},"onclick":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":250,"size":0,"duration":2,"opacity":0,"speed":3},"repulse":{"distance":400,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
 
+		function pause() {
+			window._tempFn = window.pJSDom[0].pJS.fn.vendors.draw
+			window.pJSDom[0].pJS.fn.vendors.draw = () => {
+			}
+			}
+		function  play() {
+			window.pJSDom[0].pJS.fn.vendors.draw = window._tempFn
+			window.pJSDom[0].pJS.fn.vendors.draw()
+			}
+
+
+		window.onscroll = function(){
+			
+			clearTimeout(window.stopscroll);
+			if(!window.paused){
+				document.getElementById('particles-js').classList.add("hidden-particles");
+				pause();
+				window.paused = true;
+				
+			}
+			window.stopscroll = setTimeout(function(){
+				if(window.paused){
+					document.getElementById('particles-js').classList.remove("hidden-particles");
+					play();
+					window.paused = false;
+				}
+			},200)
+		}	
 	</script>
 </body>
 

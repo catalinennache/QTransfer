@@ -580,6 +580,7 @@ header {
 
 #home {
     height: 100vh;
+    transition: 0.5s ease-in-out;
 }
 
 #home .home-wrapper {
@@ -627,9 +628,15 @@ header {
 .about {
     position: relative;
     text-align: center;
-    padding: 40px 20px 0 20px;
+    padding: 0;
     border: 1px solid #EEE;
     margin: 15px 0px;
+}
+.about > div{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 40px 20px 0 20px;
 }
 
 .about i {
